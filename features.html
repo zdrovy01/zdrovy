@@ -1,0 +1,169 @@
+<style>
+    #features-container {
+        position: relative;
+        /* Висота визначає, як довго триватиме анімація скролу (3 картки = 300vh) */
+        height: 300vh;
+        background: #e1e7e4;
+    }
+
+    .wrapper {
+        /* Робимо обгортку липкою: вона "застигне" на екрані */
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    }
+
+    .card {
+        position: absolute;
+        width: 1000px;
+        height: 600px;
+        border-radius: 45px;
+        /* Початковий стан: всі картки, крім першої, сховані знизу */
+        transform: translateY(100vh);
+        will-change: transform, opacity;
+    }
+
+    /* Перша картка відразу по центру */
+    #card1 {
+        transform: translateY(0);
+        z-index: 1;
+    }
+
+    #card2 {
+        z-index: 2;
+    }
+
+    #card3 {
+        z-index: 3;
+    }
+</style>
+<div id="features-container">
+
+    <div class="wrapper">
+        <div data-layer="features title" class="FeaturesTitle"
+            style="width: 100%; position: sticky; bottom: 85vh; padding-left: 200px; padding-right: 200px; justify-content: flex-start; align-items: flex-start;">
+            <div data-layer="title" class="Title"
+                style="width: 100%; text-align: center; color: rgb(0, 0, 0); font-size: 48px; font-family: Poppins; font-weight: 600; word-wrap: break-word">
+                Features you’ll use every day</div>
+        </div>
+
+        <div class="card" id="card1">
+            <div data-layer="card1" class="Card1"
+                style="width: 100%; height: 100%; background: white; border-radius: 45px; flex-direction: column; justify-content: center; align-items: center; display: inline-flex">
+                <div data-layer="Container" class="Container"
+                    style="align-self: stretch; height: 600px; padding-left: 70px; padding-right: 70px; justify-content: space-between; align-items: center; display: inline-flex">
+                    <div data-layer="Text Container" class="TextContainer"
+                        style="width: 100%; height: 100%; flex-direction: column; justify-content: center; align-items: flex-start; gap: 24px; display: inline-flex">
+                        <div data-layer="Title" class="Title"
+                            style="color: rgb(0, 0, 0); font-size: 48px; font-family: Poppins; font-weight: 600; line-height: 48px; word-wrap: break-word">
+                            KNOW THE PRICE<br />BEFORE THE BITE</div>
+                        <div data-layer="Description" class="Description"
+                            style="color: rgb(0, 0, 0); font-size: 20px; font-family: Poppins; font-weight: 400; line-height: 20px; word-wrap: break-word">
+                            See real-time ingredient costs for every recipe. Plan meals that actually fit your
+                            budget.</div>
+                    </div>
+                    <div data-layer="image" class="Image"
+                        style="width: 400.07px; height: 400.36px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 10px; display: inline-flex">
+                        <img data-layer="Image" class="Image" style="align-self: stretch; height: 400.36px"
+                            src="images/imgfood1.png" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card" id="card2">
+            <div data-layer="card2" class="Card2"
+                style="width: 100%; height: 100%; background:white; border-radius: 45px; flex-direction: column; justify-content: center; align-items: center; display: inline-flex">
+                <div data-layer="Container" class="Container"
+                    style="align-self: stretch; height: 600px; padding-left: 70px; justify-content: space-between; align-items: center; display: inline-flex">
+                    <div data-layer="Text Container" class="TextContainer"
+                        style="width: 100%; height: 100%; flex-direction: column; justify-content: center; align-items: flex-start; gap: 24px; display: inline-flex">
+                        <div data-layer="Title" class="Title"
+                            style="color: rgb(0, 0, 0); font-size: 48px; font-family: Poppins; font-weight: 600; line-height: 48px; word-wrap: break-word">
+                            TRACK YOUR <br />PROGRESS</div>
+                        <div data-layer="Description" class="Description"
+                            style="color: rgb(0, 0, 0); font-size: 20px; font-family: Poppins; font-weight: 400; line-height: 20px; word-wrap: break-word">
+                            Track calories and macros instantly <br />via photo, recipe, or manual entry. </div>
+                    </div>
+                    <div data-layer="image" class="Image"
+                        style="width: 599.56px; align-self: stretch; flex-direction: column; justify-content: flex-end; align-items: center; gap: 10px; display: inline-flex">
+                        <img data-layer="Product image" class="ProductImage" style="width: 563px; height: 600px"
+                            src="images/imgapp1.png" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card" id="card3">
+            <div data-layer="card3" class="Card3"
+                style="width: 100%; height: 100%; background: #ffffff; border-radius: 45px; flex-direction: column; justify-content: center; align-items: center; display: inline-flex">
+                <div data-layer="Container" class="Container"
+                    style="align-self: stretch; height: 600px; padding-left: 70px; justify-content: space-between; align-items: center; display: inline-flex">
+                    <div data-layer="Text Container" class="TextContainer"
+                        style="width: 100%; height: 100%; flex-direction: column; justify-content: center; align-items: flex-start; gap: 24px; display: inline-flex">
+                        <div data-layer="Title" class="Title"
+                            style="color: rgb(0, 0, 0); font-size: 48px; font-family: Poppins; font-weight: 600; line-height: 48px; word-wrap: break-word">
+                            FOCUS ON<br />THE FLAVOURS</div>
+                        <div data-layer="Description" class="Description"
+                            style="color: rgb(0, 0, 0); font-size: 20px; font-family: Poppins; font-weight: 400; line-height: 20px; word-wrap: break-word">
+                            Clear, step-by-step instructions<br />so you can just follow the flow.</div>
+                    </div>
+                    <div data-layer="image" class="Image"
+                        style="width: 599.56px; align-self: stretch; flex-direction: column; justify-content: flex-end; align-items: center; gap: 10px; display: inline-flex">
+                        <img data-layer="Image" class="Image" style="width: 563px; height: 600px"
+                            src="images/imgapp2.png" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<script>
+    (function () {
+        const container = document.getElementById('features-container');
+        const card1 = document.getElementById('card1');
+        const card2 = document.getElementById('card2');
+        const card3 = document.getElementById('card3');
+
+        function lerp(start, end, t) { return start + (end - start) * t; }
+        function clamp(value, min, max) { return Math.max(min, Math.min(max, value)); }
+
+        function handleScroll() {
+            const rect = container.getBoundingClientRect();
+
+            // Відстань, на яку ми прокрутили всередині контейнера (від 0 до 1)
+            const totalHeight = rect.height - window.innerHeight;
+            const progress = clamp(-rect.top / totalHeight, 0, 1);
+
+            // Розподіляємо прогрес на етапи для кожної картки
+            // p1: 0.0 - 0.5 (виїжджає друга картка)
+            // p2: 0.5 - 1.0 (виїжджає третя картка)
+            const p1 = clamp(progress * 2, 0, 1);
+            const p2 = clamp(progress * 2 - 1, 0, 1);
+
+            // Анімація CARD 1 (зменшується, коли їде CARD 2)
+            const scale1 = lerp(1, 0.9, p1);
+            card1.style.transform = `scale(${scale1})`;
+            card1.style.opacity = lerp(1, 0.6, p1);
+
+            // Анімація CARD 2 (виїжджає знизу в центр)
+            const y2 = lerp(100, 0, p1); // від 100% до 0
+            const scale2 = lerp(1, 0.9, p2); // зменшується, коли їде CARD 3
+            card2.style.transform = `translateY(${y2}vh) scale(${scale2})`;
+            card2.style.opacity = p1 > 0.1 ? lerp(0.8, 1, p1) : 0;
+
+            // Анімація CARD 3 (виїжджає знизу в центр)
+            const y3 = lerp(100, 0, p2);
+            card3.style.transform = `translateY(${y3}vh)`;
+            card3.style.opacity = p2 > 0.1 ? 1 : 0;
+        }
+
+        window.addEventListener('scroll', handleScroll);
+        handleScroll(); // Викликаємо один раз при завантаженні
+    })();
+</script>
