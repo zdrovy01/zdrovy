@@ -701,6 +701,283 @@
         .footer-social a:hover {
             opacity: 1;
         }
+
+
+        /* ═══════════════════════════════════════
+   MOBILE — max-width: 768px
+   ═══════════════════════════════════════ */
+
+        @media (max-width: 768px) {
+
+            /* ─── HEADER ─── */
+            .header {
+                padding: 0 20px;
+                height: 60px;
+            }
+
+            .header-logo,
+            .header-lang {
+                width: auto;
+            }
+
+            .header-logo img {
+                height: 22px;
+            }
+
+            .header-nav {
+                display: none;
+            }
+
+            /* ─── HERO — новий layout ─── */
+            .Hero {
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: flex-start !important;
+                justify-content: flex-start !important;
+                padding: 0;
+                min-height: 100svh;
+                overflow: hidden;
+            }
+
+            .Headline {
+                font-size: 17vw;
+                line-height: 0.88;
+                padding: 28px 20px 24px;
+                text-align: left;
+                color: #C8C8C8;
+                width: 100%;
+                position: relative;
+                z-index: 2;
+                flex: 0 0 auto;
+            }
+
+            .heroimg {
+                position: relative !important;
+                width: 100% !important;
+                height: auto !important;
+                object-fit: contain !important;
+                display: block;
+                flex: 1 1 auto;
+                align-self: center;
+            }
+
+            /* ─── MARQUEE ─── */
+            .marquee-logo {
+                width: 110px;
+            }
+
+            .marquee-container {
+                padding: 20px 0 28px;
+            }
+
+            /* ─── SECTION ─── */
+            .section {
+                padding: 0 12px;
+                margin-bottom: 12px;
+            }
+
+            .section-inner {
+                padding: 36px 20px;
+                border-radius: 28px;
+            }
+
+            /* ─── FEATURES ─── */
+            .features-title {
+                font-size: 26px;
+                margin-bottom: 24px;
+                text-align: left;
+            }
+
+            .cards-wrapper {
+                height: auto !important;
+                margin-bottom: 20px;
+                overflow: hidden;
+            }
+
+            .cardf {
+                position: relative !important;
+                top: auto !important;
+                left: auto !important;
+                opacity: 0;
+                pointer-events: none;
+                z-index: 1 !important;
+                height: auto !important;
+                flex-direction: column;
+                gap: 24px;
+                padding: 24px 20px;
+                border-radius: 24px;
+                transition: opacity 0.4s ease !important;
+                display: none;
+            }
+
+            .cardf.active {
+                opacity: 1 !important;
+                pointer-events: auto !important;
+                display: flex !important;
+            }
+
+            .card-text {
+                width: 100%;
+                flex-direction: column;
+                justify-content: flex-start;
+                gap: 16px;
+                padding: 0;
+            }
+
+            .card-icon {
+                font-size: 32px;
+            }
+
+            .card-title {
+                font-size: 30px;
+                line-height: 1.05;
+            }
+
+            .card-desc {
+                font-size: 15px;
+                max-width: 100%;
+                margin-top: 8px;
+            }
+
+            .card-img {
+                width: 100%;
+                height: 220px;
+                object-fit: contain;
+                border-radius: 16px;
+            }
+
+            .slider-bar {
+                justify-content: center;
+                gap: 8px;
+            }
+
+            .segment {
+                width: 60px;
+                height: 6px;
+            }
+
+            /* ─── HOW IT WORKS ─── */
+            .how-title {
+                font-size: 26px;
+                text-align: left;
+                margin-bottom: 24px;
+            }
+
+            .steps-grid {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .step-card {
+                padding: 24px 20px;
+                border-radius: 20px;
+                gap: 14px;
+            }
+
+            .step-title {
+                font-size: 17px;
+            }
+
+            .step-desc {
+                font-size: 14px;
+            }
+
+            /* ─── MISSION ─── */
+            .mission-inner {
+                flex-direction: column;
+                gap: 36px;
+            }
+
+            .mission-left {
+                max-width: 100%;
+                gap: 20px;
+            }
+
+            .mission-headline {
+                font-size: 30px;
+                line-height: 1.1;
+            }
+
+            .mission-body {
+                font-size: 15px;
+            }
+
+            .stats-row {
+                gap: 28px;
+            }
+
+            .stat-number {
+                font-size: 28px;
+            }
+
+            .social-right {
+                width: 100%;
+                min-width: unset;
+            }
+
+            /* ─── PRICING ─── */
+            .pricing-label {
+                text-align: left;
+            }
+
+            .pricing-title {
+                font-size: 26px;
+                text-align: left;
+                margin-bottom: 24px;
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+                max-width: 100%;
+            }
+
+            .pricing-card {
+                padding: 28px 20px;
+                border-radius: 20px;
+            }
+
+            .pricing-price {
+                font-size: 36px;
+            }
+
+            /* ─── FAQ ─── */
+            .faq-title {
+                font-size: 26px;
+                margin-bottom: 24px;
+            }
+
+            .faq-q-text {
+                font-size: 15px;
+            }
+
+            .faq-answer {
+                font-size: 14px;
+            }
+
+            /* ─── FOOTER ─── */
+            .footer {
+                padding: 0 20px;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 36px 0;
+                gap: 28px;
+            }
+
+            .footer-logo-col {
+                gap: 10px;
+            }
+
+            .footer-links-col {
+                gap: 32px;
+            }
+
+            .footer-social {
+                gap: 20px;
+            }
+        }
     </style>
 </head>
 
@@ -1034,11 +1311,12 @@
     </footer>
 
     <script>
-        // ─── FEATURES SLIDER ───
+        // ─── FEATURES SLIDER + SWIPE ───
         const cards = document.querySelectorAll('.cardf');
         const segments = document.querySelectorAll('.segment');
         let current = 0;
         let timer;
+        let touchStartX = 0;
 
         function goToSlide(index) {
             cards[current].classList.remove('active');
@@ -1057,6 +1335,24 @@
             clearInterval(timer);
             timer = setInterval(nextSlide, 5000);
         }
+
+        // Swipe
+        const wrapper = document.querySelector('.cards-wrapper');
+
+        wrapper.addEventListener('touchstart', e => {
+            touchStartX = e.touches[0].clientX;
+        }, { passive: true });
+
+        wrapper.addEventListener('touchend', e => {
+            const diff = touchStartX - e.changedTouches[0].clientX;
+            if (Math.abs(diff) > 40) {
+                if (diff > 0) {
+                    goToSlide((current + 1) % cards.length);
+                } else {
+                    goToSlide((current - 1 + cards.length) % cards.length);
+                }
+            }
+        }, { passive: true });
 
         resetTimer();
 
