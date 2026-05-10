@@ -113,6 +113,10 @@
             position: relative;
         }
 
+        .hero-mobile {
+            display: none;
+        }
+
         .Headline {
             flex: 1 1 0;
             text-align: justify;
@@ -242,10 +246,14 @@
         }
 
         .card-icon {
-            color: white;
-            font-size: 52px;
-            font-weight: 600;
-            line-height: 1;
+            width: 52px;
+            height: 52px;
+            border: 0.5px solid #333;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
         }
 
         .card-title {
@@ -728,37 +736,50 @@
                 display: none;
             }
 
-            /* ─── HERO — новий layout ─── */
+            /* ─── HERO MOBILE ─── */
             .Hero {
                 display: flex !important;
                 flex-direction: column !important;
-                align-items: flex-start !important;
+                align-items: center !important;
                 justify-content: flex-start !important;
-                padding: 0;
+                background: #EEEEEE !important;
                 min-height: 100svh;
-                overflow: hidden;
-            }
-
-            .Headline {
-                font-size: 17vw;
-                line-height: 0.88;
-                padding: 28px 20px 24px;
-                text-align: left;
-                color: #C8C8C8;
-                width: 100%;
-                position: relative;
-                z-index: 2;
-                flex: 0 0 auto;
-            }
-
-            .heroimg {
+                padding: 48px 24px 0 !important;
                 position: relative !important;
-                width: 100% !important;
-                height: auto !important;
-                object-fit: contain !important;
+                overflow: hidden !important;
+            }
+
+            /* ховаємо десктопні елементи */
+            .Hero .Headline,
+            .Hero .heroimg {
+                display: none !important;
+            }
+
+            /* показуємо мобільний блок */
+            .hero-mobile {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                width: 100%;
+                flex: 1;
+            }
+
+            .hero-mobile-title {
+                color: #111;
+                font-size: 52px;
+                font-weight: 700;
+                line-height: 1.0;
+                letter-spacing: -0.03em;
+                font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+                margin-bottom: 40px;
+            }
+
+            .hero-mobile-img {
+                width: 100%;
+                height: auto;
+                object-fit: contain;
                 display: block;
-                flex: 1 1 auto;
-                align-self: center;
+                margin: 0 auto;
             }
 
             /* ─── MARQUEE ─── */
@@ -825,7 +846,14 @@
             }
 
             .card-icon {
-                font-size: 32px;
+                width: 52px;
+                height: 52px;
+                border: 0.5px solid #333;
+                border-radius: 14px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-shrink: 0;
             }
 
             .card-title {
@@ -1003,6 +1031,12 @@
             HEALTHY FOOD<br />DOESN'T HAVE<br />TO BE EXPENSIVE
         </div>
         <img data-layer="heroimg" class="heroimg" src="heroall.png" />
+
+        <!-- MOBILE HERO (прихований на десктопі) -->
+        <div class="hero-mobile">
+            <div class="hero-mobile-title">Healthy Food<br>Real Prices</div>
+            <img class="hero-mobile-img" src="phonehero.png" alt="ZDROVY App" />
+        </div>
     </div>
 
     <!-- ─── BRANDS MARQUEE ─── -->
@@ -1030,7 +1064,14 @@
 
                 <div class="cardf active">
                     <div class="card-text">
-                        <div class="card-icon">􀀻</div>
+                        <div class="card-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white"
+                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                                <path d="M2 17l10 5 10-5" />
+                                <path d="M2 12l10 5 10-5" />
+                            </svg>
+                        </div>
                         <div>
                             <div class="card-title">KNOW THE PRICE<br>BEFORE THE BITE</div>
                             <div class="card-desc">See real-time ingredient costs for every recipe. Plan meals that
@@ -1042,7 +1083,12 @@
 
                 <div class="cardf">
                     <div class="card-text">
-                        <div class="card-icon">􀀽</div>
+                        <div class="card-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white"
+                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+                            </svg>
+                        </div>
                         <div>
                             <div class="card-title">TRACK YOUR<br>PROGRESS</div>
                             <div class="card-desc">Track calories and macros instantly via photo, recipe, or manual
@@ -1054,7 +1100,13 @@
 
                 <div class="cardf">
                     <div class="card-text">
-                        <div class="card-icon">􀀿</div>
+                        <div class="card-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white"
+                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M9 11l3 3L22 4" />
+                                <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" />
+                            </svg>
+                        </div>>
                         <div>
                             <div class="card-title">FOCUS ON<br>THE FLAVOURS</div>
                             <div class="card-desc">Clear, step-by-step instructions so you can just follow the flow.
