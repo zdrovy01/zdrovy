@@ -95,6 +95,26 @@
             color: #fff
         }
 
+        .header-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #fff;
+            color: #000;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: .04em;
+            text-transform: uppercase;
+            padding: 10px 20px;
+            border-radius: 100px;
+            text-decoration: none;
+            transition: opacity .2s
+        }
+
+        .header-cta:hover {
+            opacity: .85
+        }
+
         .header-lang {
             font-size: 15px;
             font-weight: 600;
@@ -198,6 +218,36 @@
 
         .hero-btn:hover {
             opacity: .85
+        }
+
+        .hero-btn-outline {
+            display: inline-flex;
+            align-items: center;
+            background: transparent;
+            color: rgba(255,255,255,.7);
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: .04em;
+            text-transform: uppercase;
+            padding: 13px 28px;
+            border-radius: 100px;
+            text-decoration: none;
+            border: .5px solid rgba(255,255,255,.2);
+            transition: border-color .2s, color .2s;
+            margin-top: 2px
+        }
+
+        .hero-btn-outline:hover {
+            border-color: rgba(255,255,255,.5);
+            color: #fff
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            flex-wrap: wrap;
+            justify-content: center
         }
 
         .hero-desktop-phones {
@@ -1120,7 +1170,7 @@
             <a href="#pricing">Pricing</a>
             <a href="#faq">FAQ</a>
         </nav>
-        <div class="header-lang">PL</div>
+        <a href="https://app.zdrovy.com" class="header-cta" target="_blank" rel="noopener">Try the app ↗</a>
     </header>
 
     <div data-layer="hero" class="Hero">
@@ -1131,7 +1181,10 @@
                 <div class="hero-tag"><span>Coming soon</span></div>
                 <div class="hero-title">Healthy food.<br><em>Real</em> prices.</div>
                 <div class="hero-sub">See what every meal costs — from stores you already shop at.</div>
-                <a href="#features" class="hero-btn">Explore the app</a>
+                <div class="hero-btns">
+                    <a href="https://app.zdrovy.com" class="hero-btn" target="_blank" rel="noopener">Try Web App ↗</a>
+                    <a href="#features" class="hero-btn-outline">Explore features</a>
+                </div>
             </div>
             <div class="hero-desktop-phones">
                 <img class="hero-phone hero-phone-center" src="phonehero.png" alt="ZDROVY App" />
@@ -1144,6 +1197,10 @@
                 <div class="hero-mobile-tag"><span>Coming soon</span></div>
                 <div class="hero-mobile-title">Healthy food.<br><em>Real</em> prices.</div>
                 <div class="hero-mobile-sub">See what every meal costs — from stores you already shop at.</div>
+                <div class="hero-btns" style="justify-content:flex-start">
+                    <a href="https://app.zdrovy.com" class="hero-btn" target="_blank" rel="noopener">Try Web App ↗</a>
+                    <a href="#features" class="hero-btn-outline">Explore</a>
+                </div>
             </div>
             <img class="hero-mobile-img" src="phonehero.png" alt="ZDROVY App" />
         </div>
