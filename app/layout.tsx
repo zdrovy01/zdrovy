@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "ZDROVY",
-  description: "Стартовий Next.js сайт",
+  title: "Zdrovy - Body, Mind & Lifestyle",
+  description: "Zdrovy - Body, Mind & Lifestyle",
 };
 
 export default function RootLayout({
