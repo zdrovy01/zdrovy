@@ -19,17 +19,31 @@ type MenuItem = {
 
 const MENU: MenuItem[] = [
   {
-    id: "app",
-    label: "Nutrition",
-    href: "https://app.zdrovy.com",
+    id: "health",
+    label: "Health",
+    href: "#",
     columns: [
       {
-        title: "Nutrition",
+        title: "Health",
         featured: true,
         links: [
-          { label: "App", href: "https://app.zdrovy.com" },
-          { label: "Recipes", href: "#" },
-          { label: "More About Nutrition", href: "#" },
+          { label: "How to Plan Your Wellness?", href: "#" },
+          { label: "Our Tracking App", href: "/tracking-app" },
+        ],
+      },
+    ],
+  },
+  {
+    id: "lifestyle",
+    label: "Lifestyle",
+    href: "#",
+    columns: [
+      {
+        title: "Lifestyle",
+        featured: true,
+        links: [
+          { label: "Habits", href: "#" },
+          { label: "Instagram", href: "https://instagram.com/zdrovyclub" },
         ],
       },
     ],
@@ -43,9 +57,9 @@ const MENU: MenuItem[] = [
         title: "Articles",
         featured: true,
         links: [
-          { label: "All Articles", href: "#" },
+          { label: "Last Article", href: "#" },
           { label: "Search", href: "#" },
-          { label: "Budget Eating", href: "#" },
+          { label: "How to Take a Selfie When You're in the Gym?", href: "#" },
         ],
       },
     ],
@@ -59,8 +73,7 @@ const MENU: MenuItem[] = [
         title: "For Business",
         featured: true,
         links: [
-          { label: "Overview", href: "/business" },
-          { label: "For Żabka's / Stores", href: "/business" },
+          { label: "MyShop for Żabka", href: "/business" },
           { label: "Contact", href: "mailto:zdrovy.co@gmail.com" },
         ],
       },
@@ -94,13 +107,6 @@ export default function Toolbar() {
             </li>
           ))}
         </ul>
-
-        <button className="toolbar-icon" aria-label="Search" onMouseEnter={() => setOpenId(null)}>
-          <svg width="15" height="15" viewBox="0 0 16 16" aria-hidden="true">
-            <circle cx="6.8" cy="6.8" r="5.3" fill="none" stroke="currentColor" strokeWidth="1.3" />
-            <line x1="10.8" y1="10.8" x2="15" y2="15" stroke="currentColor" strokeWidth="1.3" />
-          </svg>
-        </button>
 
       </nav>
 

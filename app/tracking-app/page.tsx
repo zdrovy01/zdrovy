@@ -1,7 +1,11 @@
-import Toolbar from "./components/Toolbar";
-import Section1 from "./components/section1";
+import Toolbar from "../components/Toolbar";
+import Section1 from "../components/section1";
 
-export default function Home() {
+export const metadata = {
+  title: "Our Tracking App — ZDROVY",
+};
+
+export default function TrackingAppPage() {
   return (
     <>
       <Toolbar />
