@@ -14,7 +14,8 @@ type MenuItem = {
   id: string;
   label: string;
   href: string;
-  columns: MenuColumn[];
+  hasSubmenu?: boolean;
+  columns?: MenuColumn[];
 };
 
 const MENU: MenuItem[] = [
@@ -22,13 +23,14 @@ const MENU: MenuItem[] = [
     id: "health",
     label: "Health",
     href: "#",
+    hasSubmenu: true,
     columns: [
       {
         title: "Health",
         featured: true,
         links: [
           { label: "How to Plan Your Wellness?", href: "#" },
-          { label: "Our Tracking App", href: "/tracking-app" },
+          { label: "Our Tracking App", href: "#" },
         ],
       },
     ],
@@ -37,6 +39,7 @@ const MENU: MenuItem[] = [
     id: "lifestyle",
     label: "Lifestyle",
     href: "#",
+    hasSubmenu: true,
     columns: [
       {
         title: "Lifestyle",
@@ -48,48 +51,19 @@ const MENU: MenuItem[] = [
       },
     ],
   },
-  {
-    id: "articles",
-    label: "Articles",
-    href: "#",
-    columns: [
-      {
-        title: "Articles",
-        featured: true,
-        links: [
-          { label: "Last Article", href: "#" },
-          { label: "Search", href: "#" },
-          { label: "How to Take a Selfie When You're in the Gym?", href: "#" },
-        ],
-      },
-    ],
-  },
-  {
-    id: "business",
-    label: "For Business",
-    href: "/business",
-    columns: [
-      {
-        title: "For Business",
-        featured: true,
-        links: [
-          { label: "MyShop for Żabka", href: "/business" },
-          { label: "Contact", href: "mailto:zdrovy.co@gmail.com" },
-        ],
-      },
-    ],
-  },
+  { id: "articles", label: "Articles", href: "#" },
+  { id: "business", label: "For Business", href: "/business" },
 ];
 
 export default function Toolbar() {
   const [openId, setOpenId] = useState<string | null>(null);
-  const active = MENU.find((item) => item.id === openId) ?? null;
+  const active = MENU.find((item) => item.id === openId && item.hasSubmenu) ?? null;
 
   return (
     <header className="toolbar" onMouseLeave={() => setOpenId(null)}>
       <nav className="toolbar-bar" aria-label="Main">
         <Link href="/" className="toolbar-logo" onMouseEnter={() => setOpenId(null)}>
-          <Image src="/textlogo.png" alt="ZDROVY" width={72} height={16} priority />
+          <Image src="/logo.svg" alt="ZDROVY" width={110} height={22} priority />
         </Link>
 
         <ul className="toolbar-links">
@@ -97,21 +71,36 @@ export default function Toolbar() {
             <li key={item.id}>
               <Link
                 href={item.href}
-                className="toolbar-link"
-                onMouseEnter={() => setOpenId(item.id)}
-                onFocus={() => setOpenId(item.id)}
+                className={`toolbar-pill${item.hasSubmenu ? " toolbar-pill--has-submenu" : ""}`}
+                onMouseEnter={() => setOpenId(item.hasSubmenu ? item.id : null)}
+                onFocus={() => setOpenId(item.hasSubmenu ? item.id : null)}
                 aria-expanded={openId === item.id}
               >
                 {item.label}
+                {item.hasSubmenu && (
+                  <svg className="toolbar-caret" width="10" height="10" viewBox="0 0 10 10" aria-hidden="true">
+                    <path d="M2 3.5 L5 6.5 L8 3.5" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                )}
               </Link>
             </li>
           ))}
         </ul>
 
+        <div className="toolbar-cta">
+          <button type="button" className="toolbar-pill toolbar-pill--ghost">
+            <svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true">
+              <circle cx="6.8" cy="6.8" r="5.3" fill="none" stroke="currentColor" strokeWidth="1.4" />
+              <line x1="10.8" y1="10.8" x2="15" y2="15" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
+            </svg>
+            Search
+          </button>
+          <Link href="https://app.zdrovy.com" className="toolbar-pill toolbar-pill--solid">Start</Link>
+        </div>
       </nav>
 
       <div className="toolbar-panel" hidden={!active}>
-        {active && (
+        {active && active.columns && (
           <div className="toolbar-panel-inner">
             {active.columns.map((column) => (
               <div
