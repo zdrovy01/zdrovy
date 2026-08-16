@@ -1,5 +1,6 @@
 import Toolbar from "../components/Toolbar";
 import Section1 from "../components/section1";
+import Footer from "../components/Footer";
 
 export const metadata = {
   title: "Our Tracking App — ZDROVY",
@@ -83,6 +84,7 @@ export default function TrackingAppPage() {
           imageWidth={2620}
           imageHeight={5416}
           mediaFit="phone"
+          background="white"
         />
 
         <Section1
@@ -98,9 +100,9 @@ export default function TrackingAppPage() {
           imageWidth={5761}
           imageHeight={3841}
           mediaFit="cover"
-          background="white"
         />
       </main>
+      <Footer />
     </>
   );
 }
