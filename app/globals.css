@@ -200,9 +200,114 @@ ul {
 
 .toolbar-col a:hover { color: #c6f24e; }
 
+/* ─── HAMBURGER + MOBILE MENU ─── */
+.toolbar-burger {
+  display: none;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+}
+
+.toolbar-burger-lines {
+  position: relative;
+  display: inline-block;
+  width: 18px;
+  height: 12px;
+}
+
+.toolbar-burger-lines span {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+  transition: transform 0.25s ease, opacity 0.2s ease, top 0.25s ease;
+}
+
+.toolbar-burger-lines span:nth-child(1) { top: 0; }
+.toolbar-burger-lines span:nth-child(2) { top: 5px; }
+.toolbar-burger-lines span:nth-child(3) { top: 10px; }
+
+.toolbar-burger-lines.is-open span:nth-child(1) { top: 5px; transform: rotate(45deg); }
+.toolbar-burger-lines.is-open span:nth-child(2) { opacity: 0; }
+.toolbar-burger-lines.is-open span:nth-child(3) { top: 5px; transform: rotate(-45deg); }
+
+.mobile-menu {
+  position: fixed;
+  inset: var(--bar-height) 0 0 0;
+  z-index: 90;
+  background: #000;
+  padding: 20px;
+  overflow-y: auto;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-8px);
+  transition: opacity 0.2s ease, transform 0.25s ease;
+}
+
+.mobile-menu.is-open {
+  opacity: 1;
+  pointer-events: auto;
+  transform: none;
+}
+
+.mobile-menu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.mobile-menu-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 18px 8px;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #1c1c1c;
+  color: #fff;
+  font-family: inherit;
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  text-align: left;
+  cursor: pointer;
+}
+
+.mobile-menu-caret { transition: transform 0.2s ease; }
+.mobile-menu-caret.is-open { transform: rotate(180deg); }
+
+.mobile-submenu {
+  padding: 6px 8px 18px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  border-bottom: 1px solid #1c1c1c;
+}
+
+.mobile-submenu-link {
+  display: block;
+  padding: 10px 0;
+  color: #b0b0b5;
+  font-size: 18px;
+  font-weight: 500;
+}
+
 @media (max-width: 900px) {
-  .toolbar-bar { padding: 16px 20px; }
-  .toolbar-links { display: none; }
+  .toolbar-bar { padding: 16px 20px; gap: 12px; }
+  .toolbar-links,
+  .toolbar-cta { display: none; }
+  .toolbar-burger { display: inline-flex; }
 }
 
 main {
