@@ -1,6 +1,8 @@
 import Link from "next/link";
 import Toolbar from "../components/Toolbar";
 import Container2 from "../components/Container2";
+import Container3 from "../components/Container3";
+import Footer from "../components/Footer";
 
 export const metadata = {
   title: "ZDROVY for Business",
@@ -44,7 +46,24 @@ export default function BusinessPage() {
             href="#"
           />
         </div>
+
+        <Container3
+          columns={3}
+          image1="/ex1.png"
+          title1="1. Build your task list"
+          text1="In your personal dashboard, create the tasks you want done — daily routines, restocks, cleaning, deliveries — anything your team should take care of."
+          href1="#"
+          image2="/ex2.png"
+          title2="2. Hang a QR code"
+          text2="Print a QR code that links straight to the task list and place it where your team starts their shift. One scan and they see what needs doing."
+          href2="#"
+          image3="/ex3.png"
+          title3="3. Team completes tasks"
+          text3="Employees tick tasks off, add notes and photos to each one, and log their working hours — all right from their phone."
+          href3="#"
+        />
       </main>
+      <Footer />
     </>
   );
 }

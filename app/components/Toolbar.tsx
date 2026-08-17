@@ -84,13 +84,13 @@ export default function Toolbar() {
         </ul>
 
         <div className="toolbar-cta">
-          <button type="button" className="toolbar-pill toolbar-pill--ghost">
+          <Link href="/search" className="toolbar-pill toolbar-pill--ghost">
             <svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true">
               <circle cx="6.8" cy="6.8" r="5.3" fill="none" stroke="currentColor" strokeWidth="1.4" />
               <line x1="10.8" y1="10.8" x2="15" y2="15" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
             </svg>
             Search
-          </button>
+          </Link>
           <Link href="https://app.zdrovy.com" className="toolbar-pill toolbar-pill--solid">Start</Link>
         </div>
 
