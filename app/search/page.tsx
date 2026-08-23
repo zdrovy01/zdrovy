@@ -2,7 +2,7 @@ import Toolbar from "../components/Toolbar";
 import Footer from "../components/Footer";
 
 export const metadata = {
-  title: "Search — ZDROVY",
+  title: "Search — Zdrovy",
 };
 
 export default function SearchPage() {

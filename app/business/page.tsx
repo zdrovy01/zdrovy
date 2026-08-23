@@ -5,7 +5,7 @@ import Container3 from "../components/Container3";
 import Footer from "../components/Footer";
 
 export const metadata = {
-  title: "ZDROVY for Business",
+  title: "Zdrovy for Business",
 };
 
 export default function BusinessPage() {
@@ -40,7 +40,7 @@ export default function BusinessPage() {
         <div id="myshop">
           <Container2
             image="/Zabka-franczyza.jpg"
-            imageAlt="ZDROVY for Żabka"
+            imageAlt="Zdrovy for Żabka"
             title="MyShop — run your Żabka from one screen"
             text="MyShop is a web tool that helps you run the store day to day. Assign tasks to your team, and they mark them done with photos and comments right from their phone. Employees log their working hours in the same place. Everything is saved on one platform — check what happened yesterday, plan tomorrow, and manage it all from a phone or a laptop."
             href="#"

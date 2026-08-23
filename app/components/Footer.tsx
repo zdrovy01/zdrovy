@@ -1,64 +1,135 @@
+"use client";
+
 import Link from "next/link";
+import { useState } from "react";
+
+type Col = {
+  id: string;
+  title: string;
+  links: { label: string; href: string; external?: boolean }[];
+};
+
+const COLS: Col[] = [
+  {
+    id: "explore",
+    title: "Explore",
+    links: [
+      { label: "Health", href: "#" },
+      { label: "Lifestyle", href: "#" },
+      { label: "Articles", href: "#" },
+      { label: "Search", href: "/search" },
+    ],
+  },
+  {
+    id: "account",
+    title: "Account",
+    links: [
+      { label: "Log in", href: "#" },
+      { label: "Sign up", href: "#" },
+      { label: "Manage Account", href: "#" },
+    ],
+  },
+  {
+    id: "app",
+    title: "Zdrovy App",
+    links: [
+      { label: "Download", href: "https://app.zdrovy.com", external: true },
+      { label: "Web App", href: "https://app.zdrovy.com", external: true },
+      { label: "Features", href: "#" },
+      { label: "Support", href: "mailto:zdrovy.co@gmail.com" },
+    ],
+  },
+  {
+    id: "business",
+    title: "For Business",
+    links: [
+      { label: "MyShop", href: "https://myshop.zdrovy.com", external: true },
+      { label: "For Żabka", href: "/business" },
+      { label: "Contact Sales", href: "mailto:zdrovy.co@gmail.com" },
+    ],
+  },
+  {
+    id: "about",
+    title: "About",
+    links: [
+      { label: "About Us", href: "#" },
+      { label: "Contact Us", href: "mailto:zdrovy.co@gmail.com" },
+      { label: "Instagram", href: "https://instagram.com/zdrovyclub", external: true },
+      { label: "YouTube", href: "https://www.youtube.com/@zdrovyclub", external: true },
+      { label: "X", href: "https://x.com/zdrovy", external: true },
+    ],
+  },
+];
 
 export default function Footer() {
+  const [openId, setOpenId] = useState<string | null>(null);
+
   return (
     <footer className="footer">
       <div className="footer-container">
         <div className="footer-grid">
-          <div className="footer-col footer-col--hide-mobile">
-            <p className="footer-col-title">Top Links</p>
-            <ul className="footer-col-links">
-              <li><Link href="#">Health</Link></li>
-              <li><Link href="#">Lifestyle</Link></li>
-              <li><Link href="#">Articles</Link></li>
-              <li><Link href="/search">Search</Link></li>
-            </ul>
-          </div>
-
-          <div className="footer-col footer-col--hide-mobile">
-            <p className="footer-col-title">ZDROVY</p>
-            <ul className="footer-col-links">
-              <li><a href="https://app.zdrovy.com" target="_blank" rel="noopener">App</a></li>
-              <li><a href="https://myshop.zdrovy.com" target="_blank" rel="noopener">MyShop</a></li>
-              <li><Link href="/business">For Business</Link></li>
-            </ul>
-          </div>
-
-          <div className="footer-col">
-            <p className="footer-col-title">About</p>
-            <ul className="footer-col-links">
-              <li><Link href="#">About Us</Link></li>
-              <li><a href="mailto:zdrovy.co@gmail.com">Contact Us</a></li>
-            </ul>
-          </div>
-
-          <div className="footer-col footer-col--legal footer-col--hide-mobile">
-            <p className="footer-legal-meta">© {new Date().getFullYear()} ZDROVY. All rights reserved.</p>
-
-            <div className="footer-social">
-              <a href="https://instagram.com/zdrovyclub" target="_blank" rel="noopener" aria-label="Instagram">
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M13.375 10C13.375 8.125 11.875 6.625 10 6.625C8.125 6.625 6.625 8.125 6.625 10C6.625 11.875 8.125 13.375 10 13.375C11.875 13.375 13.375 11.875 13.375 10ZM15.125 10C15.125 12.875 12.875 15.125 10 15.125C7.125 15.125 4.875 12.875 4.875 10C4.875 7.125 7.125 4.875 10 4.875C12.875 4.875 15.125 7.125 15.125 10ZM16.5 4.625C16.5 5.375 16 5.875 15.25 5.875C14.5 5.875 14 5.375 14 4.625C14 3.875 14.5 3.375 15.25 3.375C16 3.375 16.5 4 16.5 4.625ZM10 1.75C8.5 1.75 5.375 1.625 4.125 2.125C3.25 2.5 2.5 3.25 2.25 4.125C1.75 5.375 1.875 8.5 1.875 10C1.875 11.5 1.75 14.625 2.25 15.875C2.5 16.75 3.25 17.5 4.125 17.75C5.375 18.25 8.625 18.125 10 18.125C11.375 18.125 14.625 18.25 15.875 17.75C16.75 17.375 17.375 16.75 17.75 15.875C18.25 14.5 18.125 11.375 18.125 10C18.125 8.625 18.25 5.375 17.75 4.125C17.5 3.25 16.75 2.5 15.875 2.25C14.625 1.625 11.5 1.75 10 1.75ZM20 10V14.125C20 15.625 19.5 17.125 18.375 18.375C17.25 19.5 15.75 20 14.125 20H5.875C4.375 20 2.875 19.5 1.625 18.375C0.625 17.25 0 15.75 0 14.125V10V5.875C0 4.25 0.625 2.75 1.625 1.625C2.875 0.625 4.375 0 5.875 0H14.125C15.625 0 17.125 0.5 18.375 1.625C19.375 2.75 20 4.25 20 5.875V10Z" fill="currentColor"/>
-                </svg>
-              </a>
-              <a href="https://x.com/zdrovy" target="_blank" rel="noopener" aria-label="X">
-                <svg width="23" height="20" viewBox="0 0 23 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M17.4257 0H20.8183L13.4062 8.47193L22.1262 20H15.2983L9.9508 13.0081L3.83186 20H0.436864L8.36493 10.9385L0 0H7.00084L11.8347 6.39068L17.4257 0ZM16.2348 17.9691H18.1149L5.9794 1.92425H3.96211L16.2348 17.9691Z" fill="currentColor"/>
-                </svg>
-              </a>
-              <a href="https://www.youtube.com/@zdrovyclub" target="_blank" rel="noopener" aria-label="YouTube">
-                <svg width="29" height="20" viewBox="0 0 29 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path fillRule="evenodd" clipRule="evenodd" d="M11.412 13.6944V5.67757C14.2581 7.01675 16.4623 8.31043 19.0692 9.70519C16.9191 10.8976 14.2581 12.2356 11.412 13.6944ZM27.2729 1.6904C26.7819 1.0436 25.9452 0.540127 25.0544 0.373441C22.4361 -0.123773 6.10141 -0.125187 3.4845 0.373441C2.77015 0.507355 2.13405 0.831046 1.58762 1.33396C-0.714803 3.47096 0.00666595 14.931 0.561639 16.7874C0.79501 17.5909 1.0967 18.1704 1.47664 18.5507C1.96615 19.0536 2.63638 19.3999 3.40622 19.5552C5.56208 20.0011 16.6686 20.2505 25.0088 19.6222C25.7773 19.4883 26.4575 19.1308 26.9939 18.6066C29.1227 16.4781 28.9776 4.37448 27.2729 1.6904Z" fill="currentColor"/>
-                </svg>
-              </a>
-            </div>
-          </div>
+          {COLS.map((col) => {
+            const isOpen = openId === col.id;
+            return (
+              <div
+                key={col.id}
+                className={`footer-col${isOpen ? " is-open" : ""}`}
+              >
+                <button
+                  type="button"
+                  className="footer-col-title"
+                  aria-expanded={isOpen}
+                  onClick={() => setOpenId(isOpen ? null : col.id)}
+                >
+                  <span>{col.title}</span>
+                  <svg
+                    className="footer-col-caret"
+                    width="14"
+                    height="14"
+                    viewBox="0 0 14 14"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M3 5 L7 9 L11 5"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </button>
+                <ul className="footer-col-links">
+                  {col.links.map((l) => (
+                    <li key={l.label}>
+                      {l.external ? (
+                        <a href={l.href} target="_blank" rel="noopener">{l.label}</a>
+                      ) : (
+                        <Link href={l.href}>{l.label}</Link>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            );
+          })}
         </div>
-      </div>
 
-      <div className="footer-mark" aria-hidden="true">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/logo.svg" alt="" />
+        <p className="footer-extra">
+          More ways to reach us:{" "}
+          <a href="mailto:zdrovy.co@gmail.com">Email us</a>
+          {" "}or call{" "}
+          <a href="tel:+48793651242">+48 793 651 242</a>.
+        </p>
+
+        <div className="footer-bar">
+          <p className="footer-copy">Copyright © {new Date().getFullYear()} Zdrovy. All rights reserved.</p>
+          <nav className="footer-legal" aria-label="Legal">
+            <Link href="#">Privacy Policy</Link>
+            <span aria-hidden="true">|</span>
+            <Link href="#">Terms of Use</Link>
+          </nav>
+        </div>
       </div>
     </footer>
   );

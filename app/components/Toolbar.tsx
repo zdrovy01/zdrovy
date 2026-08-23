@@ -59,7 +59,7 @@ export default function Toolbar() {
     <header className="toolbar" onMouseLeave={() => setHoverId(null)}>
       <nav className="toolbar-bar" aria-label="Main">
         <Link href="/" className="toolbar-logo" onMouseEnter={() => setHoverId(null)}>
-          <Image src="/logo.svg" alt="ZDROVY" width={110} height={22} priority />
+          <Image src="/logo.svg" alt="Zdrovy" width={110} height={22} priority />
         </Link>
 
         <ul className="toolbar-links">
@@ -84,14 +84,12 @@ export default function Toolbar() {
         </ul>
 
         <div className="toolbar-cta">
-          <Link href="/search" className="toolbar-pill toolbar-pill--ghost">
-            <svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true">
+          <Link href="/search" className="toolbar-icon-btn" aria-label="Search">
+            <svg width="15" height="15" viewBox="0 0 16 16" aria-hidden="true">
               <circle cx="6.8" cy="6.8" r="5.3" fill="none" stroke="currentColor" strokeWidth="1.4" />
               <line x1="10.8" y1="10.8" x2="15" y2="15" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
             </svg>
-            Search
           </Link>
-          <Link href="https://app.zdrovy.com" className="toolbar-pill toolbar-pill--solid">Start</Link>
         </div>
 
         <button
@@ -104,7 +102,6 @@ export default function Toolbar() {
           <span className={`toolbar-burger-lines${mobileOpen ? " is-open" : ""}`}>
             <span />
             <span />
-            <span />
           </span>
         </button>
       </nav>
@@ -114,7 +111,6 @@ export default function Toolbar() {
         {desktopActive && desktopActive.submenu && (
           <div className="toolbar-panel-inner">
             <div className="toolbar-col toolbar-col--featured">
-              <p className="toolbar-col-title">{desktopActive.label}</p>
               <ul>
                 {desktopActive.submenu.map((link) => (
                   <li key={link.label}>
