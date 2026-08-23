@@ -7,11 +7,6 @@ export default function Home() {
     <>
       <Toolbar />
       <main>
-        <section className="hero-image">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/hero.avif" alt="" className="hero-image-img" />
-        </section>
-
         <Container3
           columns={2}
           image1="/appshow.png"
