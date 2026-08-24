@@ -17,13 +17,15 @@ export default function Home() {
 
         <Container3
           columns={2}
+          eyebrow1="ZDROVY App"
           image1="/appshow.png"
-          title1="ZDROVY App"
-          text1="Plan smarter, eat better and track your progress — everything in one place."
+          title1="Plan smarter. Eat better."
+          text1="Track your progress — everything in one place."
           href1="https://app.zdrovy.com"
+          eyebrow2="For Business"
           image2="/myshopshow.png"
-          title2="For Business"
-          text2="MyShop for Żabka — run your store from one screen and bring smart nutrition to your customers."
+          title2="MyShop for Żabka."
+          text2="Run your store from one screen and bring smart nutrition to your customers."
           href2="/business"
         />
       </main>
