@@ -2,6 +2,7 @@ import Link from "next/link";
 
 type Container3Props = {
   columns?: 1 | 2 | 3;
+  autoCycle?: boolean;
 
   eyebrow1?: string;
   image1?: string;
@@ -56,7 +57,7 @@ type Item = {
 };
 
 export default function Container3(props: Container3Props) {
-  const { columns = 2 } = props;
+  const { columns = 2, autoCycle = false } = props;
 
   const raw: (Item | null)[] = [
     props.image1 ? { eyebrow: props.eyebrow1, image: props.image1, imageAlt: props.imageAlt1, title: props.title1, text: props.text1, href: props.href1 } : null,
@@ -70,7 +71,7 @@ export default function Container3(props: Container3Props) {
   const items = raw.filter((x): x is Item => x !== null);
 
   return (
-    <section className="container3">
+    <section className={`container3${autoCycle ? " container3--autocycle" : ""}`}>
       <div className="container3-inner" data-columns={columns}>
         {items.map((item, i) => {
           const href = item.href ?? "#";

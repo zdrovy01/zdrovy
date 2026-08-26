@@ -30,8 +30,6 @@ export default function Footer() {
         </div>
 
         <nav className="footer-nav" aria-label="Footer">
-          <Link href="#">HEALTH</Link>
-          <Link href="#">LIFESTYLE</Link>
           <Link href="#">ARTICLES</Link>
           <Link href="/business">FOR BUSINESS</Link>
           <Link href="#">PRIVACY</Link>

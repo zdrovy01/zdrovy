@@ -1,4 +1,5 @@
 import Toolbar from "./components/Toolbar";
+import Text2 from "./components/text2";
 import Container3 from "./components/Container3";
 import Footer from "./components/Footer";
 
@@ -7,6 +8,8 @@ export default function Home() {
     <>
       <Toolbar />
       <main>
+        <Text2>Zdrovy Products</Text2>
+
         <Container3
           columns={2}
           eyebrow1="ZDROVY App"
@@ -17,7 +20,7 @@ export default function Home() {
           eyebrow2="For Business"
           image2="/myshopshow.png"
           title2="MyShop for Żabka."
-          text2="Run your store from one screen and bring smart nutrition to your customers."
+          text2="Assign tasks to your team and manage them remotely — from your phone or laptop."
           href2="/business"
         />
       </main>

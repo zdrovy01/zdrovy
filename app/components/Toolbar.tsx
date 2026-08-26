@@ -15,21 +15,14 @@ type MenuItem = {
 
 const MENU: MenuItem[] = [
   {
-    id: "health",
-    label: "Health",
+    id: "contact",
+    label: "Contact",
     href: "#",
     submenu: [
-      { label: "How to Plan Your Wellness?", href: "#" },
-      { label: "Our Tracking App", href: "#" },
-    ],
-  },
-  {
-    id: "lifestyle",
-    label: "Lifestyle",
-    href: "#",
-    submenu: [
-      { label: "Habits", href: "#" },
       { label: "Instagram", href: "https://instagram.com/zdrovyclub" },
+      { label: "Telegram", href: "https://t.me/zdrovy" },
+      { label: "+48 793 651 242", href: "tel:+48793651242" },
+      { label: "Email", href: "mailto:zdrovy.co@gmail.com" },
     ],
   },
   { id: "articles", label: "Articles", href: "#" },
@@ -114,7 +107,6 @@ export default function Toolbar() {
         {desktopActive && desktopActive.submenu && (
           <div className="toolbar-panel-inner">
             <div className="toolbar-col toolbar-col--featured">
-              <p className="toolbar-col-title">{desktopActive.label}</p>
               <ul>
                 {desktopActive.submenu.map((link) => (
                   <li key={link.label}>
