@@ -515,6 +515,116 @@ main {
   .biz-section-gap { height: 80px; }
 }
 
+/* ─── PRICING BLOCK ─── */
+.pricing {
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+  color: #fff;
+}
+
+.pricing-card {
+  max-width: 380px;
+  padding: 32px;
+  background: #0e0e0e;
+  border: 1px solid #262626;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.pricing-head {
+  margin-bottom: 24px;
+}
+
+.pricing-name {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 500;
+  color: #fff;
+}
+
+.pricing-sub {
+  margin: 4px 0 0;
+  font-size: 15px;
+  color: #8a8a8f;
+}
+
+.pricing-price {
+  margin: 0 0 22px;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.pricing-amount {
+  font-size: 22px;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: -0.01em;
+}
+
+.pricing-period {
+  font-size: 15px;
+  color: #8a8a8f;
+}
+
+.pricing-divider {
+  height: 1px;
+  background: #262626;
+  margin: 0 0 22px;
+}
+
+.pricing-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  flex: 1;
+}
+
+.pricing-features li {
+  position: relative;
+  padding-left: 28px;
+  font-size: 15px;
+  line-height: 1.4;
+  color: #d0d0d5;
+}
+
+.pricing-features li::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 5px;
+  width: 14px;
+  height: 8px;
+  border-left: 1.6px solid #8a8a8f;
+  border-bottom: 1.6px solid #8a8a8f;
+  transform: rotate(-45deg);
+  border-radius: 1px;
+}
+
+.pricing-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 14px;
+  background: #0a84ff;
+  color: #fff;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  transition: background 0.15s ease;
+}
+
+.pricing-cta:hover { background: #0071ea; }
+
+@media (max-width: 700px) {
+  .pricing-card { padding: 24px; max-width: none; }
+}
+
 .biz-hero .text1,
 .biz-hero .text2 {
   padding: 0;
@@ -770,6 +880,82 @@ main {
   flex-wrap: nowrap;
   gap: 10px;
   align-items: center;
+}
+
+.container4-brand {
+  display: block;
+  width: 100%;
+  max-width: 260px;
+  height: auto;
+  margin-bottom: 4px;
+}
+
+.container4-cta--block {
+  display: block;
+  margin-top: 22px;
+}
+
+.container4-cta-btn {
+  display: flex;
+  width: 100%;
+  height: 56px;
+  padding: 0 24px;
+  border-radius: 999px;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.container4-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #a1a1a6;
+}
+
+.container4-list li {
+  position: relative;
+  padding-left: 24px;
+}
+
+.container4-list li::before {
+  content: "•";
+  position: absolute;
+  left: 6px;
+  color: #a1a1a6;
+}
+
+/* checkmark variant (blue ticks) */
+.container4-list--checks {
+  color: #fff;
+  gap: 16px;
+}
+
+.container4-list--checks li { padding-left: 36px; }
+
+.container4-list--checks li::before {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 6px;
+  width: 18px;
+  height: 10px;
+  border-left: 2px solid #3ea6ff;
+  border-bottom: 2px solid #3ea6ff;
+  transform: rotate(-45deg);
+  border-radius: 1px;
+}
+
+.container4-text--note {
+  margin-top: 22px;
+  font-size: 14px;
+  color: #8a8a8f;
+  max-width: none;
+  line-height: 1.5;
 }
 
 .container4-media {

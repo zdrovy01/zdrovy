@@ -71,6 +71,38 @@ export default function BusinessPage() {
           title3="Create the first task."
           href3="https://myshop.zdrovy.com"
         />
+
+        <div className="biz-section-gap" />
+        <Text1>Price</Text1>
+
+        <section className="container4">
+          <div className="container4-card">
+            <div className="container4-body">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/myshop.svg" alt="MyShop" className="container4-brand" />
+              <p className="container4-text">Everything you need to run your Żabka.</p>
+              <div className="container4-cta container4-cta--block">
+                <Link href="https://myshop.zdrovy.com" className="toolbar-pill toolbar-pill--solid container4-cta-btn">
+                  Start free, then 99 zł / month
+                </Link>
+              </div>
+            </div>
+            <div className="container4-body">
+              <ul className="container4-list container4-list--checks">
+                <li>Task list &amp; completion tracking</li>
+                <li>Employees with PIN login</li>
+                <li>QR code for staff</li>
+                <li>Photos &amp; completion notes</li>
+                <li>Task history</li>
+                <li>Priority support</li>
+              </ul>
+              <p className="container4-text container4-text--note">
+                Get everything free for the first month. Subscribe to keep
+                using all features after your trial.
+              </p>
+            </div>
+          </div>
+        </section>
       </main>
       <Footer />
     </>
