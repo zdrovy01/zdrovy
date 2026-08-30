@@ -320,7 +320,7 @@ ul {
 }
 
 main {
-  min-height: calc(100vh - var(--bar-height));
+  min-height: calc(100dvh - var(--bar-height));
 }
 
 /* ─── HERO IMAGE (just a photo) ─── */
@@ -333,7 +333,7 @@ main {
 .hero-image-img {
   display: block;
   width: 100%;
-  height: 70vh;
+  height: 70dvh;
   max-height: 720px;
   object-fit: cover;
   background: #3d3d3d;
@@ -556,7 +556,7 @@ main {
 .biz-fullbleed-img {
   display: block;
   width: 100%;
-  height: 50vh;
+  height: 50dvh;
   max-height: 480px;
   object-fit: cover;
 }
