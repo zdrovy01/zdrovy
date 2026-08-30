@@ -885,6 +885,66 @@ main {
   .text2 { font-size: 26px; }
 }
 
+/* ─── CONTACT PAGE ─── */
+.contact-hero {
+  padding: 80px 0 40px;
+}
+
+.contact-lead {
+  margin: 0;
+  padding: 0 var(--gutter);
+  max-width: 640px;
+  font-size: 18px;
+  line-height: 1.5;
+  color: #a1a1a6;
+}
+
+.contact-hero .text1 { margin-bottom: 20px; }
+
+.contact-list {
+  padding: 20px var(--gutter) 80px;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 28px 0;
+  border-top: 1px solid #262626;
+  color: #fff;
+  transition: opacity 0.15s ease;
+}
+
+.contact-row:last-child { border-bottom: 1px solid #262626; }
+.contact-row:hover { opacity: 0.75; }
+
+.contact-label {
+  font-size: 15px;
+  font-weight: 500;
+  color: #a1a1a6;
+  min-width: 120px;
+}
+
+.contact-value {
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: #fff;
+  text-align: right;
+  word-break: break-word;
+}
+
+@media (max-width: 700px) {
+  .contact-hero { padding: 48px 20px 24px; }
+  .contact-list { padding: 8px 20px 48px; }
+  .contact-lead { padding: 0 20px; }
+  .contact-value { font-size: 20px; }
+  .contact-label { min-width: 0; }
+}
+
 /* ─── PRICE (Bolt-style: tilted amount on left, features on right) ─── */
 .price {
   margin: 0 auto;

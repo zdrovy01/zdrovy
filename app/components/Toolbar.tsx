@@ -14,17 +14,7 @@ type MenuItem = {
 };
 
 const MENU: MenuItem[] = [
-  {
-    id: "contact",
-    label: "Contact",
-    href: "#",
-    submenu: [
-      { label: "Instagram", href: "https://instagram.com/zdrovyclub" },
-      { label: "Telegram", href: "https://t.me/zdrovy" },
-      { label: "+48 793 651 242", href: "tel:+48793651242" },
-      { label: "Email", href: "mailto:zdrovy.co@gmail.com" },
-    ],
-  },
+  { id: "contact", label: "Contact", href: "/contact" },
   { id: "articles", label: "Articles", href: "#" },
   { id: "business", label: "For Business", href: "/business" },
 ];
