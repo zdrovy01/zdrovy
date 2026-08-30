@@ -873,6 +873,16 @@ main {
   color: var(--fg);
 }
 
+@media (max-width: 900px) {
+  .text1 { font-size: 44px; margin-bottom: 24px; }
+  .text2 { font-size: 30px; }
+}
+
+@media (max-width: 500px) {
+  .text1 { font-size: 36px; }
+  .text2 { font-size: 26px; }
+}
+
 /* ─── PRICE (Bolt-style: tilted amount on left, features on right) ─── */
 .price {
   margin: 0 auto;
