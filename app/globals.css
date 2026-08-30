@@ -887,19 +887,21 @@ main {
 
 /* ─── CONTACT PAGE ─── */
 .contact-hero {
-  padding: 80px 0 40px;
+  padding: 80px var(--gutter) 40px;
+}
+
+.contact-hero .text1 {
+  padding: 0;
+  margin-bottom: 20px;
 }
 
 .contact-lead {
   margin: 0;
-  padding: 0 var(--gutter);
   max-width: 640px;
   font-size: 18px;
   line-height: 1.5;
   color: #a1a1a6;
 }
-
-.contact-hero .text1 { margin-bottom: 20px; }
 
 .contact-list {
   padding: 20px var(--gutter) 80px;
