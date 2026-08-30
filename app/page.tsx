@@ -8,7 +8,7 @@ export default function Home() {
     <>
       <Toolbar />
       <main>
-        <Text2>Zdrovy Products</Text2>
+        <Text2>Products</Text2>
 
         <Container3
           columns={2}
