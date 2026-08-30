@@ -14,9 +14,9 @@ type MenuItem = {
 };
 
 const MENU: MenuItem[] = [
-  { id: "contact", label: "Contact", href: "/contact" },
-  { id: "articles", label: "Articles", href: "#" },
+  { id: "main", label: "Main", href: "/" },
   { id: "business", label: "For Business", href: "/business" },
+  { id: "contact", label: "Contact", href: "/contact" },
 ];
 
 export default function Toolbar() {
