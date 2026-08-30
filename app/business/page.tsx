@@ -15,26 +15,21 @@ export default function BusinessPage() {
     <>
       <Toolbar />
       <main>
-        <section className="biz-hero">
-          <Text1>About MyShop</Text1>
+        <section className="biz-hero biz-hero--center">
+          <p className="biz-hero-eyebrow">MyShop</p>
+          <Text1>Run your Żabka from one screen.</Text1>
+          <p className="biz-hero-lead">Tasks, staff hours, photos — all in one place. Phone or laptop.</p>
+          <div className="biz-hero-cta">
+            <Link href="https://myshop.zdrovy.com" className="toolbar-pill toolbar-pill--solid">
+              Start for free
+            </Link>
+          </div>
         </section>
 
-        <Container4
-          title="Run your Żabka from one screen."
-          text="Tasks, staff hours, photos — all in one place. Phone or laptop."
-          image="/myshopshow.png"
-          imageAlt="MyShop"
-          cta={
-            <>
-              <Link href="https://myshop.zdrovy.com" className="toolbar-pill toolbar-pill--solid">
-                Start for free
-              </Link>
-              <Link href="mailto:zdrovy.co@gmail.com" className="toolbar-pill toolbar-pill--ghost">
-                Contact us
-              </Link>
-            </>
-          }
-        />
+        <section className="biz-fullbleed">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/Zabka-franczyza.jpg" alt="" className="biz-fullbleed-img" />
+        </section>
 
         <div className="biz-section-gap" />
         <Text2>Never let your team forget their tasks.</Text2>
@@ -56,51 +51,46 @@ export default function BusinessPage() {
         />
 
         <div className="biz-section-gap" />
-        <Text2>Get started in 5 minutes.</Text2>
+        <div className="biz-panel">
+          <div className="biz-panel-inner">
+            <Text2>Get started in 5 minutes.</Text2>
 
-        <Container3
-          columns={3}
-          autoCycle
-          image1="/step1.svg"
-          title1="Register your store in a minute."
-          href1="https://myshop.zdrovy.com"
-          image2="/step2.svg"
-          title2="Add your team."
-          href2="https://myshop.zdrovy.com"
-          image3="/step3.svg"
-          title3="Create the first task."
-          href3="https://myshop.zdrovy.com"
-        />
+            <Container3
+              columns={3}
+              autoCycle
+              image1="/step1.svg"
+              title1="Register your store in a minute."
+              href1="https://myshop.zdrovy.com"
+              image2="/step2.svg"
+              title2="Add your team."
+              href2="https://myshop.zdrovy.com"
+              image3="/step3.svg"
+              title3="Create the first task."
+              href3="https://myshop.zdrovy.com"
+            />
+          </div>
+        </div>
 
         <div className="biz-section-gap" />
-        <Text1>Price</Text1>
 
-        <section className="container4">
-          <div className="container4-card">
-            <div className="container4-body">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/myshop.svg" alt="MyShop" className="container4-brand" />
-              <p className="container4-text">Everything you need to run your Żabka.</p>
-              <div className="container4-cta container4-cta--block">
-                <Link href="https://myshop.zdrovy.com" className="toolbar-pill toolbar-pill--solid container4-cta-btn">
-                  Start free, then 99 zł / month
-                </Link>
-              </div>
-            </div>
-            <div className="container4-body">
-              <ul className="container4-list container4-list--checks">
-                <li>Task list &amp; completion tracking</li>
-                <li>Employees with PIN login</li>
-                <li>QR code for staff</li>
-                <li>Photos &amp; completion notes</li>
-                <li>Task history</li>
-                <li>Priority support</li>
-              </ul>
-              <p className="container4-text container4-text--note">
-                Get everything free for the first month. Subscribe to keep
-                using all features after your trial.
-              </p>
-            </div>
+        <section className="price">
+          <div className="price-visual" aria-hidden="true">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/paragon.png" alt="" className="price-paragon" />
+          </div>
+          <div className="price-body">
+            <p className="price-lead">Everything you need to run your Żabka.</p>
+            <ul className="container4-list container4-list--checks">
+              <li>Task list &amp; completion tracking</li>
+              <li>Employees with PIN login</li>
+              <li>QR code for staff</li>
+              <li>Photos &amp; completion notes</li>
+              <li>Task history</li>
+              <li>Priority support</li>
+            </ul>
+            <Link href="https://myshop.zdrovy.com" className="toolbar-pill toolbar-pill--solid price-cta">
+              Start free, then 99 zł / month
+            </Link>
           </div>
         </section>
       </main>
