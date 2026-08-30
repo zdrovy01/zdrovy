@@ -4,6 +4,7 @@ import Text1 from "../components/text1";
 import Text2 from "../components/text2";
 import Container3 from "../components/Container3";
 import Container4 from "../components/Container4";
+import PriceParagon from "../components/PriceParagon";
 import Footer from "../components/Footer";
 
 export const metadata = {
@@ -75,8 +76,7 @@ export default function BusinessPage() {
 
         <section className="price">
           <div className="price-visual" aria-hidden="true">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/paragon.png" alt="" className="price-paragon" />
+            <PriceParagon src="/paragon.png" />
           </div>
           <div className="price-body">
             <p className="price-lead">Everything you need to run your Żabka.</p>

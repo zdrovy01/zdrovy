@@ -888,23 +888,22 @@ main {
   align-items: center;
   justify-content: center;
   padding: 40px;
+  perspective: 1400px;
 }
 
 .price-paragon {
   display: block;
   width: 100%;
-  max-width: 460px;
+  max-width: 640px;
   height: auto;
-  transform: rotate(-14deg);
+  transform: rotate(0deg) rotateY(0deg);
+  transform-origin: center center;
   filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.6));
-  animation: paragon-tilt linear both;
-  animation-timeline: view();
-  animation-range: entry 0% cover 40%;
+  transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-@keyframes paragon-tilt {
-  from { transform: rotate(-14deg); }
-  to   { transform: rotate(8deg); }
+.price-paragon.is-in-view {
+  transform: rotate(-14deg) rotateY(28deg);
 }
 
 .price-lead {
