@@ -1,4 +1,5 @@
 import Toolbar from "./components/Toolbar";
+import Hero1 from "./components/Hero1";
 import Text2 from "./components/text2";
 import Container3 from "./components/Container3";
 import Footer from "./components/Footer";
@@ -8,6 +9,16 @@ export default function Home() {
     <>
       <Toolbar />
       <main>
+        <Hero1
+          title="Body. Mind. Lifestyle."
+          text="Everyday with Zdrovy."
+          linkLabel="Explore"
+          linkHref="#products"
+          image="/hero.jpg"
+          imageAlt=""
+        />
+
+        <div id="products" />
         <Text2>Products</Text2>
 
         <Container3
