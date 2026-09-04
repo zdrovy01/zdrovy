@@ -309,6 +309,7 @@ ul {
 @media (max-width: 900px) {
   .toolbar-bar { padding: 16px 20px; gap: 12px; }
   .toolbar-cta { display: none; }
+  .toolbar-burger { margin-left: auto; }
 }
 
 main {
@@ -940,9 +941,14 @@ main {
   .hero1-image { height: 320px; }
 }
 
+@media (max-width: 900px) {
+  .hero1-title,
+  .hero1-text { white-space: normal; }
+}
+
 @media (max-width: 700px) {
-  .hero1-image { display: none; }
-  .hero1-media { margin-bottom: 0; }
+  .hero1-image { height: 260px; }
+  .hero1-media { margin-bottom: 48px; }
 }
 
 /* ─── CONTACT PAGE ─── */
