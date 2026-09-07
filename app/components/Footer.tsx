@@ -4,6 +4,12 @@ export default function Footer() {
   return (
     <footer className="footer">
       <div className="footer-inner">
+        <nav className="footer-nav" aria-label="Footer">
+          <Link href="/">Main</Link>
+          <Link href="/business">For Żabka</Link>
+          <Link href="/contact">Contact us</Link>
+        </nav>
+
         <div className="footer-socials">
           <a
             href="https://instagram.com/zdrovyclub"
@@ -28,14 +34,6 @@ export default function Footer() {
             </svg>
           </a>
         </div>
-
-        <nav className="footer-nav" aria-label="Footer">
-          <Link href="#">ARTICLES</Link>
-          <Link href="/business">FOR BUSINESS</Link>
-          <Link href="#">PRIVACY</Link>
-        </nav>
-
-        <p className="footer-copy">© {new Date().getFullYear()} ZDROVY</p>
       </div>
     </footer>
   );

@@ -8,7 +8,7 @@ import PriceParagon from "../components/PriceParagon";
 import Footer from "../components/Footer";
 
 export const metadata = {
-  title: "ZDROVY for Business",
+  title: "For Żabka",
 };
 
 export default function BusinessPage() {

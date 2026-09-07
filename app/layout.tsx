@@ -9,7 +9,10 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Zdrovy - Body, Mind & Lifestyle",
+  title: {
+    default: "Zdrovy",
+    template: "%s - Zdrovy",
+  },
   description: "Zdrovy - Body, Mind & Lifestyle",
 };
 

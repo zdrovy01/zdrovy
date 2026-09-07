@@ -4,7 +4,7 @@ import Text1 from "../components/text1";
 import Footer from "../components/Footer";
 
 export const metadata = {
-  title: "Contact — Zdrovy",
+  title: "Contact",
 };
 
 export default function ContactPage() {
