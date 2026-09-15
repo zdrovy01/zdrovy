@@ -919,7 +919,6 @@ main {
 
 .hero1-media {
   width: 100%;
-  margin-bottom: 80px;
 }
 
 .hero1-image {
@@ -941,7 +940,6 @@ main {
 
 @media (max-width: 700px) {
   .hero1-image { height: 260px; }
-  .hero1-media { margin-bottom: 48px; }
 }
 
 /* ─── CONTACT PAGE ─── */
