@@ -1365,14 +1365,14 @@ main {
   background: var(--surface-2);
 }
 
-/* Products band: inverted — grey behind, black cards */
+/* Products band: inverted — grey behind, plain cards */
 .products-panel {
-  background: #1a1a1a;
+  background: var(--surface);
   padding: 60px 0 80px;
 }
 
-.products-panel .container3-card { background: #000; }
-.products-panel .container3-card:hover { background: #0d0d0d; }
+.products-panel .container3-card { background: var(--bg); }
+.products-panel .container3-card:hover { background: var(--surface-2); }
 
 @media (max-width: 900px) {
   .products-panel { padding: 40px 0 48px; }
