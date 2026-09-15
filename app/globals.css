@@ -1347,6 +1347,19 @@ main {
   background: #202020;
 }
 
+/* Products band: inverted — grey behind, black cards */
+.products-panel {
+  background: #1a1a1a;
+  padding: 60px 0 80px;
+}
+
+.products-panel .container3-card { background: #000; }
+.products-panel .container3-card:hover { background: #0d0d0d; }
+
+@media (max-width: 900px) {
+  .products-panel { padding: 40px 0 48px; }
+}
+
 /* Auto-cycle: highlight each card in turn */
 @keyframes container3-blink {
   0%   { background: #1a1a1a; }
