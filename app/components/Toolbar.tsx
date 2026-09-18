@@ -50,7 +50,7 @@ export default function Toolbar() {
             <li key={item.id}>
               <Link
                 href={item.href}
-                className={`toolbar-pill${item.submenu ? " toolbar-pill--has-submenu" : ""}`}
+                className="pill"
                 onMouseEnter={() => setHoverId(item.submenu ? item.id : null)}
                 onFocus={() => setHoverId(item.submenu ? item.id : null)}
                 aria-expanded={hoverId === item.id}
@@ -67,14 +67,14 @@ export default function Toolbar() {
         </ul>
 
         <div className="toolbar-cta">
-          <Link href="/search" className="toolbar-pill toolbar-pill--ghost">
+          <Link href="/search" className="pill">
             <svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true">
               <circle cx="6.8" cy="6.8" r="5.3" fill="none" stroke="currentColor" strokeWidth="1.4" />
               <line x1="10.8" y1="10.8" x2="15" y2="15" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
             </svg>
             Search
           </Link>
-          <Link href="https://app.zdrovy.com" className="toolbar-pill toolbar-pill--solid">Start</Link>
+          <Link href="https://app.zdrovy.com" className="pill pill--solid">Start</Link>
         </div>
 
         <button

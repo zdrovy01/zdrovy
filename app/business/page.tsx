@@ -1,98 +1,165 @@
 import Link from "next/link";
 import Toolbar from "../components/Toolbar";
-import Text1 from "../components/text1";
-import Text2 from "../components/text2";
-import Container3 from "../components/Container3";
-import Container4 from "../components/Container4";
-import PriceParagon from "../components/PriceParagon";
+import Hero from "../components/Hero";
+import Section from "../components/Section";
+import Figure from "../components/Figure";
 import Footer from "../components/Footer";
 
 export const metadata = {
   title: "For Żabka",
 };
 
+const STATS = [
+  { value: "5 min", label: "to set up" },
+  { value: "0", label: "apps to install" },
+  { value: "79 zł", label: "per month" },
+];
+
+const STEPS = [
+  {
+    marker: "01",
+    title: "Write the list",
+    text: "Once. It repeats itself.",
+    // temporary — replace with: owner at a laptop, away from the store
+    src: "/ex1.png",
+    alt: "A task list in the MyShop dashboard",
+  },
+  {
+    marker: "02",
+    title: "Hang the QR",
+    text: "Team scans. No app.",
+    // temporary — replace with: the printed QR on a real backroom wall
+    src: "/ex2.png",
+    alt: "The QR code staff scan to open their task list",
+  },
+  {
+    marker: "03",
+    title: "See it done",
+    text: "Photo, time, name.",
+    // temporary — replace with: an employee ticking a task off on their phone
+    src: "/ex3.png",
+    alt: "Photos of restocked shelves submitted with completed tasks",
+  },
+];
+
+const FEATURES = [
+  "Photo proof",
+  "Hours logged",
+  "PIN per person",
+  "Daily repeats",
+  "Any phone",
+  "Full history",
+];
+
 export default function BusinessPage() {
   return (
     <>
       <Toolbar />
       <main>
-        <section className="biz-hero biz-hero--center">
-          <p className="biz-hero-eyebrow">MyShop</p>
-          <Text1>Run your Żabka from one screen.</Text1>
-          <p className="biz-hero-lead">Tasks, staff hours, photos — all in one place. Phone or laptop.</p>
-          <div className="biz-hero-cta">
-            <Link href="https://myshop.zdrovy.com" className="toolbar-pill toolbar-pill--solid">
-              Start for free
-            </Link>
-          </div>
-        </section>
-
-        <section className="biz-fullbleed">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/Zabka-franczyza.jpg" alt="" className="biz-fullbleed-img" />
-        </section>
-
-        <div className="biz-section-gap" />
-        <Text2>Never let your team forget their tasks.</Text2>
-
-        <Container3
-          columns={3}
-          image1="/ex1.png"
-          title1="1. Build your task list"
-          text1="In your personal dashboard, create the tasks you want done — daily routines, restocks, cleaning, deliveries — anything your team should take care of."
-          href1="#"
-          image2="/ex2.png"
-          title2="2. Hang a QR code"
-          text2="Print a QR code that links straight to the task list and place it where your team starts their shift. One scan and they see what needs doing."
-          href2="#"
-          image3="/ex3.png"
-          title3="3. Team completes tasks"
-          text3="Employees tick tasks off, add notes and photos to each one, and log their working hours — all right from their phone."
-          href3="#"
+        {/* 1 — headline: the benefit, not the mechanism */}
+        <Hero
+          eyebrow={
+            /* eslint-disable-next-line @next/next/no-img-element */
+            <img src="/myshop.svg" alt="MyShop" className="wordmark" />
+          }
+          align="center"
+          title="Assign tasks to your team online."
+          text="Every task done, with proof. From your phone."
+          ctaLabel="Start free"
+          ctaHref="https://myshop.zdrovy.com"
+          secondaryLabel="Talk to us"
+          secondaryHref="mailto:zdrovy.co@gmail.com"
         />
 
-        <div className="biz-section-gap" />
-        <div className="biz-panel">
-          <div className="biz-panel-inner">
-            <Text2>Get started in 5 minutes.</Text2>
+        <Section>
+          <Figure
+            src="/myshopscreen.png"
+            alt="The MyShop task list open in a browser"
+            ratio="wide"
+            fit="contain"
+          />
+        </Section>
 
-            <Container3
-              columns={3}
-              autoCycle
-              image1="/step1.svg"
-              title1="Register your store in a minute."
-              href1="https://myshop.zdrovy.com"
-              image2="/step2.svg"
-              title2="Add your team."
-              href2="https://myshop.zdrovy.com"
-              image3="/step3.svg"
-              title3="Create the first task."
-              href3="https://myshop.zdrovy.com"
-            />
+        <Section>
+          <div className="stats">
+            {STATS.map((s) => (
+              <div key={s.label} className="stat">
+                <span className="stat-value">{s.value}</span>
+                <span className="stat-label">{s.label}</span>
+              </div>
+            ))}
           </div>
-        </div>
+        </Section>
 
-        <div className="biz-section-gap" />
-
-        <section className="price">
-          <div className="price-visual" aria-hidden="true">
-            <PriceParagon src="/paragon.png" />
+        {/* 2 — problem paired with the solution */}
+        <Section tone="band">
+          <div className="grid">
+            <h2 className="text2 col-5">
+              You can&rsquo;t be in the store all day.
+            </h2>
+            <h2 className="text2 col-5 col-start-8">
+              So the list checks itself off.
+            </h2>
           </div>
-          <div className="price-body">
-            <p className="price-lead">Everything you need to run your Żabka.</p>
-            <ul className="container4-list container4-list--checks">
-              <li>Task list &amp; completion tracking</li>
-              <li>Employees with PIN login</li>
-              <li>QR code for staff</li>
-              <li>Photos &amp; completion notes</li>
-              <li>Task history</li>
-              <li>Priority support</li>
-            </ul>
-            <Link href="https://myshop.zdrovy.com" className="toolbar-pill toolbar-pill--solid price-cta">
-              Start free, then 99 zł / month
+        </Section>
+
+        <Section heading="How it works">
+          <div className="grid">
+            {STEPS.map((step) => (
+              <div key={step.marker} className="col-4 stack">
+                <span className="marker">{step.marker}</span>
+                <Figure ratio="square" src={step.src} alt={step.alt} />
+                <h3 className="feature-title">{step.title}</h3>
+                <p className="feature-text">{step.text}</p>
+              </div>
+            ))}
+          </div>
+        </Section>
+
+        {/* 3 — what you get */}
+        <Section heading="What you get">
+          <div className="grid">
+            {FEATURES.map((f) => (
+              <h3 key={f} className="feature feature-title col-4">
+                {f}
+              </h3>
+            ))}
+          </div>
+        </Section>
+
+        <Section heading="One screen for the whole store.">
+          {/* paste the YouTube link here: youtube="https://youtu.be/..." */}
+          <Figure kind="video" ratio="wide" />
+        </Section>
+
+        {/* 4 — CTA */}
+        <Section tone="band">
+          <div className="grid">
+            <div className="col-5 stack">
+              <span className="marker">Pricing</span>
+              <div className="price-figure">
+                <span className="price-amount">79 zł</span>
+                <span className="price-unit">per store / month</span>
+              </div>
+              <p className="lead">First month free. Cancel anytime.</p>
+              <Link href="https://myshop.zdrovy.com" className="pill pill--solid">
+                Start free
+              </Link>
+            </div>
+          </div>
+        </Section>
+
+        <Section>
+          <h2 className="text2">Set it up before the next shift.</h2>
+          <div className="hero-cta">
+            <Link href="https://myshop.zdrovy.com" className="pill pill--solid">
+              Start free
+            </Link>
+            <Link href="mailto:zdrovy.co@gmail.com" className="pill">
+              Talk to us
             </Link>
           </div>
-        </section>
+        </Section>
       </main>
       <Footer />
     </>

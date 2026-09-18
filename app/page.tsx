@@ -1,7 +1,7 @@
 import Toolbar from "./components/Toolbar";
-import Hero1 from "./components/Hero1";
-import Text2 from "./components/text2";
-import Container3 from "./components/Container3";
+import Hero from "./components/Hero";
+import Section from "./components/Section";
+import Cards from "./components/Cards";
 import Footer from "./components/Footer";
 
 export default function Home() {
@@ -9,33 +9,35 @@ export default function Home() {
     <>
       <Toolbar />
       <main>
-        <Hero1
+        <Hero
           title="Body. Mind. Lifestyle."
           text="Everyday with Zdrovy."
-          linkLabel="Explore"
-          linkHref="#products"
+          ctaLabel="Explore"
+          ctaHref="#products"
           image="/hero.jpg"
-          imageAlt=""
         />
 
-        <div id="products" />
-        <section className="products-panel">
-          <Text2>Products</Text2>
-
-          <Container3
+        <Section id="products" heading="Products" tone="band">
+          <Cards
             columns={2}
-            eyebrow1="ZDROVY App"
-            image1="/appshow.png"
-            title1="Plan smarter. Eat better."
-            text1="Track your progress — everything in one place."
-            href1="https://app.zdrovy.com"
-            eyebrow2="For Business"
-            image2="/myshopshow.png"
-            title2="MyShop for Żabka."
-            text2="Assign tasks to your team and manage them remotely — from your phone or laptop."
-            href2="/business"
+            items={[
+              {
+                eyebrow: "ZDROVY App",
+                title: "Plan smarter. Eat better.",
+                text: "Track your progress — everything in one place.",
+                image: "/appshow.png",
+                href: "https://app.zdrovy.com",
+              },
+              {
+                eyebrow: "For Business",
+                title: "MyShop for Żabka.",
+                text: "Assign tasks to your team and manage them remotely — from your phone or laptop.",
+                image: "/myshopshow.png",
+                href: "/business",
+              },
+            ]}
           />
-        </section>
+        </Section>
       </main>
       <Footer />
     </>

@@ -1,39 +1,42 @@
-import Link from "next/link";
 import Toolbar from "../components/Toolbar";
-import Text1 from "../components/text1";
+import Hero from "../components/Hero";
+import Section from "../components/Section";
 import Footer from "../components/Footer";
 
 export const metadata = {
   title: "Contact",
 };
 
+const CONTACTS = [
+  { label: "Email", value: "zdrovy.co@gmail.com", href: "mailto:zdrovy.co@gmail.com" },
+  { label: "Phone", value: "+48 793 651 242", href: "tel:+48793651242" },
+  { label: "Instagram", value: "@zdrovyclub", href: "https://instagram.com/zdrovyclub" },
+  { label: "Telegram", value: "@zdrovy", href: "https://t.me/zdrovy" },
+];
+
 export default function ContactPage() {
   return (
     <>
       <Toolbar />
       <main>
-        <section className="contact-hero">
-          <Text1>Contact</Text1>
-        </section>
+        <Hero title="Contact" align="left" />
 
-        <section className="contact-list">
-          <a className="contact-row" href="mailto:zdrovy.co@gmail.com">
-            <span className="contact-label">Email</span>
-            <span className="contact-value">zdrovy.co@gmail.com</span>
-          </a>
-          <a className="contact-row" href="tel:+48793651242">
-            <span className="contact-label">Phone</span>
-            <span className="contact-value">+48 793 651 242</span>
-          </a>
-          <a className="contact-row" href="https://instagram.com/zdrovyclub" target="_blank" rel="noopener">
-            <span className="contact-label">Instagram</span>
-            <span className="contact-value">@zdrovyclub</span>
-          </a>
-          <a className="contact-row" href="https://t.me/zdrovy" target="_blank" rel="noopener">
-            <span className="contact-label">Telegram</span>
-            <span className="contact-value">@zdrovy</span>
-          </a>
-        </section>
+        <Section>
+          <div className="rows">
+            {CONTACTS.map((c) => (
+              <a
+                key={c.label}
+                className="row"
+                href={c.href}
+                target={c.href.startsWith("http") ? "_blank" : undefined}
+                rel={c.href.startsWith("http") ? "noopener" : undefined}
+              >
+                <span className="row-label">{c.label}</span>
+                <span className="row-value">{c.value}</span>
+              </a>
+            ))}
+          </div>
+        </Section>
       </main>
       <Footer />
     </>
