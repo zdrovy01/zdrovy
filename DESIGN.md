@@ -4,8 +4,17 @@ The whole visual system lives in `app/globals.css` as tokens. These rules exist
 because the site previously had 20 font sizes, 19 gap values and 4 card radii —
 every section invented its own numbers, so nothing matched.
 
-**The one rule: never write a raw px value in component CSS. Use a token, or add
-a token if the scale genuinely lacks a step.**
+**The one rule: spacing, type, colour, radius and motion always come from
+tokens. Never write a raw value for those — use a token, or add one if the
+scale genuinely lacks a step.**
+
+The exception, stated so it stops being argued: **element geometry is not
+spacing.** An icon's 20px, a round button's 40px, the logo's width, a media
+block's height — these belong to the component, not to a scale, and a spacing
+token must never be used for them. Keep each such value in the component's own
+rule and in exactly one place. If the same dimension shows up in a second
+component, that is the signal it has become systemic — promote it to a token
+then, not before.
 
 ---
 
@@ -22,6 +31,7 @@ Two background levels. That is the whole system.
 | `--surface` | `#f5f5f7` | cards, and tinted section bands |
 | `--surface-2` | `#ebebed` | hover only |
 | `--accent` | `#0071e3` | links, checkmarks |
+| `--overlay` | `rgba(0,0,0,.25)` | dimming behind an open menu |
 
 **Contrast rule:** a card and the thing behind it must differ.
 - On the page (`--bg`) → card is `--surface`.

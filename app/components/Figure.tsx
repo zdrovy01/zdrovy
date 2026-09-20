@@ -25,7 +25,8 @@ type FigureProps = {
   spec?: string;
   /** Pixel size to hand the photographer or editor. */
   dimensions?: string;
-  ratio?: "wide" | "portrait" | "square";
+  /** "natural" lets the media keep its own proportions instead of a frame. */
+  ratio?: "wide" | "portrait" | "square" | "natural";
   /**
    * "cover" (default) fills the frame and crops — right for photographs.
    * "contain" fits the whole thing in — right for product shots and mockups,
@@ -34,6 +35,11 @@ type FigureProps = {
   fit?: "cover" | "contain";
   /** Labels the placeholder so it is clear what is still missing. */
   kind?: "photo" | "video";
+  /**
+   * Crops from the top and dissolves the bottom edge into the page.
+   * For device shots that should melt into the layout rather than end.
+   */
+  fade?: boolean;
 };
 
 /**
@@ -51,6 +57,7 @@ export default function Figure({
   ratio = "wide",
   fit = "cover",
   kind = "photo",
+  fade = false,
 }: FigureProps) {
   const hasMedia = Boolean(youtube || src);
 
@@ -59,6 +66,7 @@ export default function Figure({
       <div
         className={`figure-frame${hasMedia ? "" : " figure-frame--empty"}`}
         data-ratio={ratio}
+        data-fade={fade ? "true" : undefined}
         {...(hasMedia
           ? {}
           : {

@@ -1,0 +1,7 @@
+<svg width="2400" height="3000" viewBox="0 0 2400 3000" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A video reply in a message">
+  <!-- speech bubble with a tail -->
+  <path d="M700 1020h1000c165 0 300 135 300 300v560c0 165-135 300-300 300h-620l-300 280v-280h-80c-165 0-300-135-300-300v-560c0-165 135-300 300-300z"
+        fill="#000000"/>
+  <!-- play -->
+  <path d="M1080 1420l340 180-340 180z" fill="#ffffff"/>
+</svg>

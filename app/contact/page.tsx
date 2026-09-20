@@ -10,7 +10,7 @@ export const metadata = {
 const CONTACTS = [
   { label: "Email", value: "zdrovy.co@gmail.com", href: "mailto:zdrovy.co@gmail.com" },
   { label: "Phone", value: "+48 793 651 242", href: "tel:+48793651242" },
-  { label: "Instagram", value: "@zdrovyclub", href: "https://instagram.com/zdrovyclub" },
+  { label: "Instagram", value: "@zdrovycom", href: "https://instagram.com/zdrovycom" },
   { label: "Telegram", value: "@zdrovy", href: "https://t.me/zdrovy" },
 ];
 

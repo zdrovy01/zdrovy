@@ -12,7 +12,7 @@ export default function Footer() {
 
         <div className="footer-socials">
           <a
-            href="https://instagram.com/zdrovyclub"
+            href="https://instagram.com/zdrovycom"
             target="_blank"
             rel="noopener"
             className="footer-social-btn"
