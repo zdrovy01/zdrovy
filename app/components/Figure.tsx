@@ -33,13 +33,10 @@ type FigureProps = {
    * where cropping would clip the device or the UI.
    */
   fit?: "cover" | "contain";
+  /** Which edge a "cover" crop holds on to. Centre is the default. */
+  anchor?: "center" | "top";
   /** Labels the placeholder so it is clear what is still missing. */
   kind?: "photo" | "video";
-  /**
-   * Crops from the top and dissolves the bottom edge into the page.
-   * For device shots that should melt into the layout rather than end.
-   */
-  fade?: boolean;
 };
 
 /**
@@ -56,8 +53,8 @@ export default function Figure({
   dimensions,
   ratio = "wide",
   fit = "cover",
+  anchor = "center",
   kind = "photo",
-  fade = false,
 }: FigureProps) {
   const hasMedia = Boolean(youtube || src);
 
@@ -66,7 +63,6 @@ export default function Figure({
       <div
         className={`figure-frame${hasMedia ? "" : " figure-frame--empty"}`}
         data-ratio={ratio}
-        data-fade={fade ? "true" : undefined}
         {...(hasMedia
           ? {}
           : {
@@ -87,7 +83,13 @@ export default function Figure({
           />
         ) : src ? (
           // eslint-disable-next-line @next/next/no-img-element
-          <img src={src} alt={alt} className="figure-img" data-fit={fit} />
+          <img
+            src={src}
+            alt={alt}
+            className="figure-img"
+            data-fit={fit}
+            data-anchor={anchor}
+          />
         ) : (
           <>
             <span className="figure-dim">

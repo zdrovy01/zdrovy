@@ -54,14 +54,14 @@ export default function Home() {
           secondaryHref="https://instagram.com/zdrovycom"
         />
 
-        <Section>
+        <Section flush>
           <div className="grid">
             <div className="col-6 col-start-4">
               <Figure
                 src="/appshow.png"
                 alt="The Zdrovy app asking what to track today"
                 ratio="portrait"
-                fade
+                anchor="top"
               />
             </div>
           </div>
