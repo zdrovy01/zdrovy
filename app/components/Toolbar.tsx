@@ -3,28 +3,22 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { path, type Locale, type Dictionary } from "../i18n";
 
-type MenuLink = { label: string; href: string };
-
-type MenuItem = {
-  id: string;
-  label: string;
-  href: string;
-  submenu?: MenuLink[];
-};
-
-const MENU: MenuItem[] = [
-  { id: "main", label: "Main", href: "/" },
-  { id: "business", label: "For Żabka", href: "/business" },
-  { id: "contact", label: "Contact us", href: "/contact" },
-];
-
-export default function Toolbar() {
-  const [hoverId, setHoverId] = useState<string | null>(null);
+export default function Toolbar({
+  locale,
+  dict,
+}: {
+  locale: Locale;
+  dict: Dictionary;
+}) {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [expandedId, setExpandedId] = useState<string | null>(null);
 
-  const desktopActive = MENU.find((item) => item.id === hoverId && item.submenu) ?? null;
+  const menu = [
+    { href: "/", label: dict.nav.main },
+    { href: "/business", label: dict.nav.business },
+    { href: "/contact", label: dict.nav.contact },
+  ];
 
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
@@ -33,54 +27,23 @@ export default function Toolbar() {
     };
   }, [mobileOpen]);
 
-  const closeMobile = () => {
-    setMobileOpen(false);
-    setExpandedId(null);
-  };
-
   return (
-    <header className="toolbar" onMouseLeave={() => setHoverId(null)}>
-      <nav className="toolbar-bar" aria-label="Main">
-        <Link href="/" className="toolbar-logo" onMouseEnter={() => setHoverId(null)}>
+    <header className="toolbar">
+      <nav className="toolbar-bar" aria-label={dict.nav.main}>
+        <Link href={path(locale, "/")} className="toolbar-logo">
           <Image src="/logo.svg" alt="ZDROVY" width={110} height={22} priority />
         </Link>
 
-        <ul className="toolbar-links">
-          {MENU.map((item) => (
-            <li key={item.id}>
-              <Link
-                href={item.href}
-                className="pill"
-                onMouseEnter={() => setHoverId(item.submenu ? item.id : null)}
-                onFocus={() => setHoverId(item.submenu ? item.id : null)}
-                aria-expanded={hoverId === item.id}
-              >
-                {item.label}
-                {item.submenu && (
-                  <svg className="toolbar-caret" width="10" height="10" viewBox="0 0 10 10" aria-hidden="true">
-                    <path d="M2 3.5 L5 6.5 L8 3.5" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                )}
-              </Link>
-            </li>
-          ))}
-        </ul>
-
         <div className="toolbar-cta">
-          <Link href="/search" className="pill">
-            <svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true">
-              <circle cx="6.8" cy="6.8" r="5.3" fill="none" stroke="currentColor" strokeWidth="1.4" />
-              <line x1="10.8" y1="10.8" x2="15" y2="15" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
-            </svg>
-            Search
+          <Link href="https://app.zdrovy.com" className="pill pill--solid">
+            {dict.chrome.start}
           </Link>
-          <Link href="https://app.zdrovy.com" className="pill pill--solid">Start</Link>
         </div>
 
         <button
           type="button"
           className="toolbar-burger"
-          aria-label={mobileOpen ? "Close menu" : "Open menu"}
+          aria-label={mobileOpen ? dict.chrome.closeMenu : dict.chrome.openMenu}
           aria-expanded={mobileOpen}
           onClick={() => setMobileOpen((v) => !v)}
         >
@@ -92,77 +55,22 @@ export default function Toolbar() {
         </button>
       </nav>
 
-      {/* desktop mega-menu */}
-      <div className="toolbar-panel" hidden={!desktopActive}>
-        {desktopActive && desktopActive.submenu && (
-          <div className="toolbar-panel-inner">
-            <div className="toolbar-col toolbar-col--featured">
-              <ul>
-                {desktopActive.submenu.map((link) => (
-                  <li key={link.label}>
-                    <Link href={link.href}>{link.label}</Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        )}
-      </div>
-
       <div
-        className="toolbar-backdrop"
-        data-active={desktopActive ? "true" : "false"}
-        aria-hidden="true"
-        onMouseEnter={() => setHoverId(null)}
-        onClick={() => setHoverId(null)}
-      />
-
-      {/* mobile full-screen panel */}
-      <div className={`mobile-menu${mobileOpen ? " is-open" : ""}`} aria-hidden={!mobileOpen}>
+        className={`mobile-menu${mobileOpen ? " is-open" : ""}`}
+        aria-hidden={!mobileOpen}
+      >
         <ul className="mobile-menu-list">
-          {MENU.map((item) => {
-            const expanded = expandedId === item.id;
-            return (
-              <li key={item.id} className="mobile-menu-item">
-                {item.submenu ? (
-                  <>
-                    <button
-                      type="button"
-                      className="mobile-menu-link mobile-menu-link--toggle"
-                      aria-expanded={expanded}
-                      onClick={() => setExpandedId(expanded ? null : item.id)}
-                    >
-                      <span>{item.label}</span>
-                      <svg
-                        className={`mobile-menu-caret${expanded ? " is-open" : ""}`}
-                        width="16"
-                        height="16"
-                        viewBox="0 0 16 16"
-                        aria-hidden="true"
-                      >
-                        <path d="M4 6 L8 10 L12 6" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-                      </svg>
-                    </button>
-                    {expanded && (
-                      <ul className="mobile-submenu">
-                        {item.submenu.map((s) => (
-                          <li key={s.label}>
-                            <Link href={s.href} className="mobile-submenu-link" onClick={closeMobile}>
-                              {s.label}
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-                  </>
-                ) : (
-                  <Link href={item.href} className="mobile-menu-link" onClick={closeMobile}>
-                    {item.label}
-                  </Link>
-                )}
-              </li>
-            );
-          })}
+          {menu.map((item) => (
+            <li key={item.href}>
+              <Link
+                href={path(locale, item.href)}
+                className="mobile-menu-link"
+                onClick={() => setMobileOpen(false)}
+              >
+                {item.label}
+              </Link>
+            </li>
+          ))}
         </ul>
       </div>
     </header>

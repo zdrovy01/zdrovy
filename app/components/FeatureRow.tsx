@@ -1,6 +1,8 @@
 import { ReactNode } from "react";
 
 type FeatureRowProps = {
+  /** 01 / 02 / 03 when the rows are a sequence rather than a list. */
+  marker?: string;
   title: string;
   text?: string;
   /** Short noun phrases. Only list what the product actually does. */
@@ -12,6 +14,7 @@ type FeatureRowProps = {
 };
 
 export default function FeatureRow({
+  marker,
   title,
   text,
   items,
@@ -23,6 +26,7 @@ export default function FeatureRow({
       <div className="feature-row-media">{media}</div>
 
       <div className="feature-row-body">
+        {marker && <span className="marker">{marker}</span>}
         <h2 className="text2">{title}</h2>
         {text && <p className="lead">{text}</p>}
         {items && items.length > 0 && (

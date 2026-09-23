@@ -118,6 +118,11 @@ img {
   padding-block-end: 0;
 }
 
+/* media cut against the next section reads as a cut, not as a card */
+.section--flush .figure-frame {
+  border-radius: 0;
+}
+
 /* two plain sections in a row share one rhythm unit, not two */
 .section:not(.section--band) + .section:not(.section--band) {
   padding-block-start: 0;
@@ -739,6 +744,7 @@ img {
   position: relative;
   width: 100%;
   overflow: hidden;
+  border-radius: var(--r-lg);
 }
 
 .figure-frame[data-ratio="wide"]     { aspect-ratio: 16 / 9; }
@@ -804,39 +810,6 @@ img {
   line-height: var(--lh-normal);
   color: var(--muted);
 }
-
-/* ============================================================
-   STATS — numeric proof bar
-   ============================================================ */
-
-.stats {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: var(--s5);
-}
-
-.stat {
-  display: flex;
-  flex-direction: column;
-  gap: var(--s2);
-  padding-top: var(--s4);
-  border-top: 1px solid var(--fg);
-}
-
-.stat-value {
-  font-size: var(--t-h2);
-  font-weight: 700;
-  line-height: var(--lh-snug);
-  letter-spacing: var(--ls-tight);
-  font-variant-numeric: tabular-nums;
-}
-
-.stat-label {
-  font-size: var(--t-small);
-  line-height: var(--lh-normal);
-  color: var(--muted);
-}
-
 
 /* ============================================================
    FEATURE — label + title + text, divided by a rule
@@ -962,4 +935,50 @@ img {
   /* centre the icon on the first line rather than guessing an offset */
   margin-top: calc((1em * var(--lh-normal) - 20px) / 2);
   color: var(--fg);
+}
+
+/* country mark — the white half needs an edge to exist on a white ground */
+.flag-svg {
+  display: block;
+  width: 24px;
+  height: auto;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+}
+
+.flag {
+  display: inline-flex;
+  flex-shrink: 0;
+}
+
+/* the language switch: the current one reads as chosen, the rest invite a click */
+.flag-link {
+  display: inline-flex;
+  border-radius: 3px;
+  opacity: 0.45;
+  transition: opacity var(--dur) var(--ease);
+}
+
+.flag-link:hover,
+.flag-link:focus-visible {
+  opacity: 1;
+}
+
+.flag-link[data-current="true"] {
+  opacity: 1;
+}
+
+.footer-flags {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+  flex-shrink: 0;
+}
+
+/* flags and socials travel together on the right */
+.footer-end {
+  display: flex;
+  align-items: center;
+  gap: var(--s6);
+  flex-shrink: 0;
 }
