@@ -39,19 +39,21 @@ export default async function ContactPage({
         <Hero title={t.contact.heading} align="left" />
 
         <Section>
-          <div className="rows">
-            {rows.map((c) => (
-              <a
-                key={c.label}
-                className="row"
-                href={c.href}
-                target={c.href.startsWith("http") ? "_blank" : undefined}
-                rel={c.href.startsWith("http") ? "noopener" : undefined}
-              >
-                <span className="row-label">{c.label}</span>
-                <span className="row-value">{c.value}</span>
-              </a>
-            ))}
+          <div className="grid">
+            <div className="rows col-8">
+              {rows.map((c) => (
+                <a
+                  key={c.label}
+                  className="row"
+                  href={c.href}
+                  target={c.href.startsWith("http") ? "_blank" : undefined}
+                  rel={c.href.startsWith("http") ? "noopener" : undefined}
+                >
+                  <span className="row-label">{c.label}</span>
+                  <span className="row-value">{c.value}</span>
+                </a>
+              ))}
+            </div>
           </div>
         </Section>
       </main>
