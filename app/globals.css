@@ -269,10 +269,10 @@ img {
   z-index: 1;
   min-height: var(--bar-height);
   padding: var(--s3) var(--gutter);
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: var(--s5);
+  gap: var(--s3) var(--s6);
 }
 
 .toolbar-logo {
@@ -286,8 +286,7 @@ img {
   display: block;
 }
 
-/* nav sits in the centre track, so it is centred on the bar itself
-   rather than on whatever is left over beside the logo */
+/* nav sits directly beside the wordmark and reads as one line with it */
 .toolbar-links {
   display: flex;
   align-items: center;
@@ -309,19 +308,14 @@ img {
 .toolbar-cta {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
   gap: var(--s2);
+  margin-left: auto;
 }
 
 @media (max-width: 900px) {
-  .toolbar-bar {
-    grid-template-columns: 1fr auto;
-    row-gap: var(--s3);
-  }
   .toolbar-links {
-    grid-column: 1 / -1;
-    grid-row: 2;
-    justify-content: center;
+    order: 1;
+    width: 100%;
     gap: var(--s4);
   }
 }
