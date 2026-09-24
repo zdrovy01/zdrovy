@@ -295,8 +295,8 @@ img {
 }
 
 .toolbar-links a {
-  font-size: var(--t-small);
-  font-weight: 500;
+  font-size: var(--t-body);
+  font-weight: 600;
   color: var(--fg);
   white-space: nowrap;
   transition: opacity var(--dur) var(--ease);
