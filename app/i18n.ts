@@ -20,7 +20,7 @@ export const localeFlag: Record<Locale, { country: "pl" | "ua" | "us"; label: st
 
 const en = {
   nav: { main: "Main", business: "For Żabka", contact: "Contact us" },
-  chrome: { start: "Start", openMenu: "Open menu", closeMenu: "Close menu" },
+  chrome: { start: "Start" },
 
   home: {
     title: "Zdrovy",
@@ -105,7 +105,7 @@ export type Dictionary = typeof en;
 
 const pl: Dictionary = {
   nav: { main: "Główna", business: "Dla Żabki", contact: "Kontakt" },
-  chrome: { start: "Start", openMenu: "Otwórz menu", closeMenu: "Zamknij menu" },
+  chrome: { start: "Start" },
 
   home: {
     title: "Zdrovy",
@@ -188,7 +188,7 @@ const pl: Dictionary = {
 
 const uk: Dictionary = {
   nav: { main: "Головна", business: "Для Żabka", contact: "Контакти" },
-  chrome: { start: "Почати", openMenu: "Відкрити меню", closeMenu: "Закрити меню" },
+  chrome: { start: "Почати" },
 
   home: {
     title: "Zdrovy",
