@@ -39,7 +39,7 @@ export default async function Home({
 
         <Section flush>
           <div className="grid">
-            <div className="col-6 col-start-4">
+            <div className="col-4 col-start-5 hero-shot">
               <Figure
                 src="/appshow.png"
                 alt={t.home.phoneAlt}

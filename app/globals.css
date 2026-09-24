@@ -8,12 +8,11 @@
 
 :root {
   /* ---- colour (2 surface levels, no more) ---- */
-  --bg: #ffffff;
-  --fg: #1d1d1f;
-  --muted: #6e6e73;
-  --border: #d2d2d7;
-  --surface: #f5f5f7;
-  --surface-2: #ebebed;
+  --bg: #000000;
+  --fg: #ffffff;
+  --muted: #8e8e93;
+  --surface: #111111;
+  --surface-2: #1a1a1c;
   --accent: #0071e3;
   --overlay: rgba(0, 0, 0, 0.25);
 
@@ -46,7 +45,7 @@
   /* ---- layout ---- */
   --gutter: 20vw;
   --section-y: var(--s9);
-  --bar-height: 72px;
+  --bar-height: 88px;
   --control-h: 44px;
 
   /* ---- motion (one duration, one easing) ---- */
@@ -76,9 +75,7 @@ body {
   padding: 0;
   background: var(--bg);
   color: var(--fg);
-  font-family: "Neue Haas Grotesk Display Pro", "Neue Haas Grotesk Display",
-    "Neue Haas Grotesk Text Pro", "Neue Haas Grotesk", "NeueHaasDisplay",
-    "Helvetica Neue", var(--font-inter), "Inter", sans-serif;
+  font-family: var(--font-inter), sans-serif;
   font-size: var(--t-body);
   line-height: var(--lh-normal);
   -webkit-font-smoothing: antialiased;
@@ -153,6 +150,7 @@ img {
 .col-8 { grid-column-end: span 8; }
 
 .col-start-4 { grid-column-start: 4; }
+.col-start-5 { grid-column-start: 5; }
 .col-start-8 { grid-column-start: 8; }
 
 @media (max-width: 900px) {
@@ -221,8 +219,8 @@ img {
   gap: var(--s2);
   height: var(--control-h);
   padding-inline: var(--s5);
-  background: transparent;
-  border: 1px solid var(--border);
+  background: var(--surface);
+  border: 0;
   border-radius: var(--r-full);
   color: var(--fg);
   font-family: inherit;
@@ -231,48 +229,46 @@ img {
   line-height: 1;
   white-space: nowrap;
   cursor: pointer;
-  transition: background var(--dur) var(--ease),
-    border-color var(--dur) var(--ease), color var(--dur) var(--ease);
+  transition: background var(--dur) var(--ease), color var(--dur) var(--ease);
 }
 
 .pill:hover {
-  background: var(--surface);
-  border-color: var(--fg);
+  background: var(--surface-2);
 }
 
 .pill--solid {
   background: var(--fg);
-  border-color: var(--fg);
   color: var(--bg);
 }
 
 .pill--solid:hover {
   background: var(--muted);
-  border-color: var(--muted);
   color: var(--bg);
 }
 
 /* ============================================================
    TOOLBAR
+   88px tall, from the reference bar. The side padding is the site's own
+   --gutter, so the wordmark lines up with every heading below it.
    ============================================================ */
 
 .toolbar {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: var(--bg);
-  border-bottom: 1px solid var(--border);
+  background: var(--surface);
 }
 
 .toolbar-bar {
   position: relative;
   z-index: 1;
   min-height: var(--bar-height);
-  padding: var(--s3) var(--gutter);
+  padding-inline: var(--gutter);
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: var(--s3) var(--s6);
+  justify-content: space-between;
+  gap: var(--s3);
 }
 
 .toolbar-logo {
@@ -280,22 +276,28 @@ img {
   align-items: center;
 }
 
+/* the wordmark is solid black artwork, so it is inverted for the dark page
+   rather than shipped a second time in white */
 .toolbar-logo img {
-  width: 104px;
+  filter: invert(1);
+  width: 128px;
   height: auto;
   display: block;
 }
 
-/* nav sits directly beside the wordmark and reads as one line with it */
+/* the nav holds the right edge, the wordmark the left */
 .toolbar-links {
   display: flex;
   align-items: center;
   gap: var(--s5);
+  padding-block: var(--s4);
 }
 
 .toolbar-links a {
+  padding-block: var(--s2);
   font-size: var(--t-body);
   font-weight: 600;
+  line-height: var(--lh-normal);
   color: var(--fg);
   white-space: nowrap;
   transition: opacity var(--dur) var(--ease);
@@ -305,18 +307,11 @@ img {
   opacity: 0.6;
 }
 
-.toolbar-cta {
-  display: flex;
-  align-items: center;
-  gap: var(--s2);
-  margin-left: auto;
-}
-
 @media (max-width: 900px) {
   .toolbar-links {
-    order: 1;
-    width: 100%;
+    flex-wrap: wrap;
     gap: var(--s4);
+    padding-block: var(--s3);
   }
 }
 
@@ -326,7 +321,7 @@ img {
    ============================================================ */
 
 .hero-copy {
-  padding: var(--s9) var(--gutter) var(--s8);
+  padding: var(--s8) var(--gutter) var(--s7);
   display: flex;
   flex-direction: column;
   gap: var(--s4);
@@ -415,98 +410,11 @@ img {
 }
 
 /* ============================================================
-   SEARCH
-   ============================================================ */
-
-.search-hero {
-  padding: var(--section-y) var(--gutter);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--s5);
-}
-
-.search-box {
-  width: 100%;
-  max-width: 720px;
-  padding: var(--s3) var(--s3) var(--s3) var(--s5);
-  border: 1px solid var(--border);
-  border-radius: var(--r-full);
-  display: flex;
-  align-items: center;
-  gap: var(--s3);
-  background: var(--bg);
-}
-
-.search-box-icon {
-  display: inline-flex;
-  color: var(--muted);
-  flex-shrink: 0;
-}
-
-.search-box-input {
-  flex: 1;
-  min-width: 0;
-  height: var(--control-h);
-  background: transparent;
-  border: 0;
-  outline: 0;
-  color: var(--fg);
-  font-family: inherit;
-  font-size: var(--t-h3);
-  font-weight: 400;
-  line-height: 1;
-}
-
-.search-box-input::placeholder {
-  color: var(--muted);
-}
-
-.search-filters {
-  width: 100%;
-  max-width: 720px;
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: var(--s3);
-}
-
-.search-filter {
-  display: inline-flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--s2);
-  height: var(--control-h);
-  padding-inline: var(--s5);
-  background: transparent;
-  border: 1px solid var(--border);
-  border-radius: var(--r-full);
-  color: var(--fg);
-  font-family: inherit;
-  font-size: var(--t-small);
-  font-weight: 600;
-  cursor: pointer;
-  transition: background var(--dur) var(--ease),
-    border-color var(--dur) var(--ease);
-}
-
-.search-filter:hover {
-  background: var(--surface);
-  border-color: var(--fg);
-}
-
-@media (max-width: 900px) {
-  .search-filters {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* ============================================================
    FOOTER
    ============================================================ */
 
 .footer {
   background: var(--bg);
-  border-top: 1px solid var(--border);
 }
 
 .footer-inner {
@@ -597,6 +505,19 @@ img {
 .figure-frame[data-ratio="portrait"] { aspect-ratio: 4 / 5; }
 .figure-frame[data-ratio="square"]   { aspect-ratio: 1 / 1; }
 
+/* the opening shot is measured against the viewport, not its own ratio, so
+   the headline and the phone land on one screen */
+.hero-shot .figure-frame {
+  aspect-ratio: auto;
+  height: 40vh;
+}
+
+@media (max-width: 900px) {
+  .hero-shot .figure-frame {
+    height: 42vh;
+  }
+}
+
 /* "natural" sets no frame — the media keeps its own proportions */
 .figure-frame[data-ratio="natural"] .figure-img {
   height: auto;
@@ -634,7 +555,6 @@ img {
   justify-content: space-between;
   gap: var(--s5);
   padding: var(--s5);
-  border: 1px solid var(--border);
   background: var(--surface);
 }
 
@@ -666,7 +586,6 @@ img {
   flex-direction: column;
   gap: var(--s2);
   padding-top: var(--s4);
-  border-top: 1px solid var(--border);
 }
 
 .feature-title {
@@ -708,7 +627,9 @@ img {
 }
 
 /* a wordmark standing in for eyebrow text */
+/* black artwork on a dark page, inverted like the toolbar wordmark */
 .wordmark {
+  filter: invert(1);
   display: block;
   height: 1.25rem;
   width: auto;
@@ -774,6 +695,16 @@ img {
   color: var(--fg);
 }
 
+/* the tick is cut out of the disc, so it takes the page colour rather than
+   a hardcoded white that vanished on the dark theme */
+.check-disc {
+  fill: var(--fg);
+}
+
+.check-tick {
+  stroke: var(--bg);
+}
+
 .check {
   flex-shrink: 0;
   width: 20px;
@@ -788,7 +719,6 @@ img {
   display: block;
   width: 24px;
   height: auto;
-  border: 1px solid var(--border);
   border-radius: 3px;
 }
 

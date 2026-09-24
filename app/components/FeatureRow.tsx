@@ -39,11 +39,11 @@ export default function FeatureRow({
                   aria-hidden="true"
                   focusable="false"
                 >
-                  <circle cx="10" cy="10" r="10" fill="currentColor" />
+                  <circle cx="10" cy="10" r="10" className="check-disc" />
                   <path
+                    className="check-tick"
                     d="M5.8 10.3l2.7 2.7 5.7-5.7"
                     fill="none"
-                    stroke="#fff"
                     strokeWidth="2"
                     strokeLinecap="round"
                     strokeLinejoin="round"

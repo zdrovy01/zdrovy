@@ -19,7 +19,7 @@ export default function Toolbar({
     <header className="toolbar">
       <nav className="toolbar-bar" aria-label={dict.nav.main}>
         <Link href={path(locale, "/")} className="toolbar-logo">
-          <Image src="/logo.svg" alt="ZDROVY" width={110} height={22} priority />
+          <Image src="/logo.svg" alt="ZDROVY" width={128} height={26} priority />
         </Link>
 
         <div className="toolbar-links">
@@ -30,11 +30,6 @@ export default function Toolbar({
           ))}
         </div>
 
-        <div className="toolbar-cta">
-          <Link href="https://app.zdrovy.com" className="pill pill--solid">
-            {dict.chrome.start}
-          </Link>
-        </div>
       </nav>
     </header>
   );

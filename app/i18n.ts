@@ -18,9 +18,7 @@ export const localeFlag: Record<Locale, { country: "pl" | "us"; label: string }>
 };
 
 const en = {
-  nav: { main: "Main", business: "For Żabka", contact: "Contact us" },
-  chrome: { start: "Start" },
-
+  nav: { main: "Products", business: "For Business", contact: "Contact" },
   home: {
     title: "Zdrovy",
     eyebrow: "Zdrovy App — in development",
@@ -103,9 +101,7 @@ const en = {
 export type Dictionary = typeof en;
 
 const pl: Dictionary = {
-  nav: { main: "Główna", business: "Dla Żabki", contact: "Kontakt" },
-  chrome: { start: "Start" },
-
+  nav: { main: "Produkty", business: "Dla biznesu", contact: "Kontakt" },
   home: {
     title: "Zdrovy",
     eyebrow: "Aplikacja Zdrovy — w budowie",
