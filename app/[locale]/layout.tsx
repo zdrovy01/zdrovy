@@ -6,7 +6,7 @@ import { notFound } from "next/navigation";
 
 const inter = Inter({
   // Cyrillic is needed for the Ukrainian copy
-  subsets: ["latin", "latin-ext", "cyrillic"],
+  subsets: ["latin", "latin-ext"],
   weight: ["400", "500", "600", "700"],
   variable: "--font-inter",
 });

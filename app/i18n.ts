@@ -1,4 +1,4 @@
-export const locales = ["en", "pl", "uk"] as const;
+export const locales = ["en", "pl"] as const;
 export type Locale = (typeof locales)[number];
 export const defaultLocale: Locale = "en";
 
@@ -12,9 +12,8 @@ export function path(locale: Locale, to: string): string {
 }
 
 /** The flag shown for each locale, and the language it is labelled with. */
-export const localeFlag: Record<Locale, { country: "pl" | "ua" | "us"; label: string }> = {
+export const localeFlag: Record<Locale, { country: "pl" | "us"; label: string }> = {
   pl: { country: "pl", label: "Polski" },
-  uk: { country: "ua", label: "Українська" },
   en: { country: "us", label: "English" },
 };
 
@@ -186,90 +185,7 @@ const pl: Dictionary = {
   },
 };
 
-const uk: Dictionary = {
-  nav: { main: "Головна", business: "Для Żabka", contact: "Контакти" },
-  chrome: { start: "Почати" },
-
-  home: {
-    title: "Zdrovy",
-    eyebrow: "Застосунок Zdrovy — у розробці",
-    heading: "Дізнайся, чому ти так почуваєшся.",
-    cta: "Ранній доступ",
-    secondary: "Стежити",
-    phoneAlt: "Застосунок Zdrovy запитує, що записати сьогодні",
-    divider: "Три речі, які він робить.",
-    features: [
-      {
-        title: "Прочитай свій день",
-        text: "Запиши чотири речі. У відповідь — речення, а не панель із цифрами.",
-        items: [
-          "Сон, вода, їжа і рух",
-          "Твій день звичайною мовою",
-          "Що це спричинило, а не лише що сталося",
-          "Одна річ, яку змінити завтра",
-        ],
-        alt: "Чотири речі, які ти записуєш: їжа, сон, вода і рух",
-      },
-      {
-        title: "Готуй крок за кроком",
-        text: "Рецепти, які ведуть тебе крок за кроком.",
-        items: ["Рецепти в застосунку", "Покроковий режим готування"],
-        alt: "Млинці смажаться на сковороді",
-      },
-      {
-        title: "Додай тренера",
-        text: "Тренер бачить твої дні й відповідає в застосунку.",
-        items: ["Тренер бачить, що ти записуєш", "Відповідає текстом", "Або відео"],
-        alt: "Тренування, зняте крізь сітку",
-      },
-    ],
-    closing: "Ще будуємо. Заходь раніше.",
-    closingSecondary: "Маєш Żabkę? Дивись MyShop",
-  },
-
-  business: {
-    title: "Для Żabka",
-    heading: "Давай завдання команді онлайн.",
-    text: "Кожне завдання виконане, з доказом. З твого телефона.",
-    cta: "Почати безкоштовно",
-    secondary: "Написати нам",
-    screenAlt: "Список завдань MyShop у браузері",
-    problem: "Ти не можеш бути в магазині цілий день.",
-    solution: "Тож список закривається сам.",
-    steps: [
-      {
-        title: "Напиши список",
-        text: "Один раз. Далі повторюється сам.",
-        items: ["Щодня, щотижня або разово", "Налаштуй раз — повторюється", "З телефона або ноутбука"],
-        alt: "Список завдань у панелі MyShop",
-      },
-      {
-        title: "Повісь QR-код",
-        text: "Команда сканує. Без застосунку.",
-        items: ["Один код на весь магазин", "Нічого встановлювати", "PIN для кожного працівника"],
-        alt: "QR-код, який працівники сканують, щоб відкрити список завдань",
-      },
-      {
-        title: "Побач, що зроблено",
-        text: "Фото, час, імʼя.",
-        items: ["Фото до кожного завдання", "Години від моменту сканування", "Повна історія з пошуком"],
-        alt: "Фото поповнених полиць, додані до виконаних завдань",
-      },
-    ],
-    pricing: "Ціна",
-    priceUnit: "за магазин / місяць",
-    priceNote: "Перший місяць безкоштовно. Скасувати будь-коли.",
-    closing: "Налаштуй до наступної зміни.",
-  },
-
-  contact: {
-    title: "Контакти",
-    heading: "Контакти",
-    labels: { email: "Пошта", phone: "Телефон", instagram: "Instagram", telegram: "Telegram" },
-  },
-};
-
-const dictionaries: Record<Locale, Dictionary> = { en, pl, uk };
+const dictionaries: Record<Locale, Dictionary> = { en, pl };
 
 export function getDictionary(locale: Locale): Dictionary {
   return dictionaries[locale];

@@ -1,8 +1,7 @@
-type Country = "pl" | "ua" | "us";
+type Country = "pl" | "us";
 
 const LABEL: Record<Country, string> = {
   pl: "Polski",
-  ua: "Українська",
   us: "English",
 };
 
@@ -23,13 +22,6 @@ export default function Flag({ country }: { country: Country }) {
           <>
             <rect width="20" height="13" fill="#ffffff" />
             <rect y="6.5" width="20" height="6.5" fill="#d4213d" />
-          </>
-        )}
-
-        {country === "ua" && (
-          <>
-            <rect width="20" height="13" fill="#0057b7" />
-            <rect y="6.5" width="20" height="6.5" fill="#ffd700" />
           </>
         )}
 

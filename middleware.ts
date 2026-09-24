@@ -13,6 +13,17 @@ export function middleware(request: NextRequest) {
   );
   if (hasLocale) return;
 
+  // /uk/... was published before Ukrainian was withdrawn; keep those links
+  // working instead of serving a 404.
+  const retired = pathname === "/uk" || pathname.startsWith("/uk/")
+    ? pathname.slice(3)
+    : null;
+  if (retired !== null) {
+    const url = request.nextUrl.clone();
+    url.pathname = `/${defaultLocale}${retired}`;
+    return NextResponse.redirect(url);
+  }
+
   const preferred = request.headers
     .get("accept-language")
     ?.split(",")
