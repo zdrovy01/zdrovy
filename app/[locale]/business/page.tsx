@@ -32,7 +32,7 @@ export default async function BusinessPage({
 
   return (
     <>
-      <Toolbar locale={locale} dict={t} />
+      <Toolbar locale={locale} dict={t} here="/business" />
       <main>
         {/* 1 — headline: the benefit, not the mechanism */}
         <Hero
@@ -50,12 +50,14 @@ export default async function BusinessPage({
         />
 
         <Section>
+          <div className="shot-plain">
           <Figure
             src="/myshopscreen.png"
             alt={t.business.screenAlt}
             ratio="wide"
             fit="contain"
           />
+          </div>
         </Section>
 
         {/* 2 — problem paired with the solution */}
@@ -70,9 +72,7 @@ export default async function BusinessPage({
         {t.business.steps.map((step, i) => (
           <Section key={step.title}>
             <FeatureRow
-              marker={`0${i + 1}`}
               title={step.title}
-              text={step.text}
               items={step.items}
               flip={i % 2 === 1}
               media={

@@ -1,7 +1,8 @@
+import Image from "next/image";
 import Link from "next/link";
-import Flag from "./Flag";
-import { locales, localeFlag, path, type Locale, type Dictionary } from "../i18n";
+import { locales, localeLabel, path, type Locale, type Dictionary } from "../i18n";
 
+/** One line of links, one line of controls, the legal note last. */
 export default function Footer({
   locale,
   dict,
@@ -12,36 +13,22 @@ export default function Footer({
   dict: Dictionary;
   here?: string;
 }) {
+  const other = locales.find((code) => code !== locale) ?? locale;
+
   return (
     <footer className="footer">
       <div className="footer-inner">
+        <Link href={path(locale, "/")} className="footer-logo">
+          <Image src="/logo.svg" alt="ZDROVY" width={96} height={20} />
+        </Link>
+
         <nav className="footer-nav" aria-label={dict.nav.main}>
           <Link href={path(locale, "/")}>{dict.nav.main}</Link>
           <Link href={path(locale, "/business")}>{dict.nav.business}</Link>
           <Link href={path(locale, "/contact")}>{dict.nav.contact}</Link>
         </nav>
 
-        <div className="footer-end">
-          <div className="footer-flags">
-            {locales.map((code) => {
-              const { country, label } = localeFlag[code];
-              const current = code === locale;
-              return (
-                <Link
-                  key={code}
-                  href={path(code, here)}
-                  className="flag-link"
-                  hrefLang={code}
-                  aria-label={label}
-                  aria-current={current ? "true" : undefined}
-                  data-current={current ? "true" : undefined}
-                >
-                  <Flag country={country} />
-                </Link>
-              );
-            })}
-          </div>
-
+        <div className="footer-row">
           <div className="footer-socials">
             <a
               href="https://instagram.com/zdrovycom"
@@ -66,7 +53,26 @@ export default function Footer({
               </svg>
             </a>
           </div>
+
+          <Link
+            href={path(other, here)}
+            className="footer-lang"
+            hrefLang={other}
+            aria-label={localeLabel[other]}
+          >
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path
+                d="M7.99996 0.666748C3.93329 0.666748 0.666626 3.93341 0.666626 8.00008C0.666626 12.0667 3.93329 15.3334 7.99996 15.3334C12.0666 15.3334 15.3333 12.0667 15.3333 8.00008C15.3333 3.93341 12.0666 0.666748 7.99996 0.666748ZM13.3333 8.00008C13.3333 8.46675 13.2666 8.93341 13.1333 9.33341C12.7333 8.33341 12.0666 7.26675 11.1333 6.20008L12.3333 5.00008C13 5.86675 13.3333 6.86675 13.3333 8.00008ZM4.33329 4.33341C5.19996 4.33341 6.73329 4.86675 8.33329 6.26675L6.19996 8.40008C4.73329 6.53342 4.33329 5.00008 4.33329 4.33341ZM9.73329 7.66675C11.2666 9.46675 11.6666 11.0001 11.6666 11.6667C10.8 11.6667 9.26663 11.1334 7.66663 9.73342L9.73329 7.66675ZM11 3.60008L9.73329 4.86675C8.66663 3.93341 7.59996 3.26675 6.59996 2.86675C7.06663 2.73341 7.46663 2.66675 7.93329 2.66675C9.13329 2.66675 10.1333 3.00008 11 3.60008ZM2.66663 8.00008C2.66663 7.53341 2.73329 7.06675 2.86663 6.66675C3.26663 7.66675 3.93329 8.73341 4.86663 9.80008L3.66663 11.0001C2.99996 10.1334 2.66663 9.13341 2.66663 8.00008ZM4.99996 12.4001L6.26663 11.1334C7.33329 12.0667 8.39996 12.7334 9.39996 13.1334C8.93329 13.2667 8.53329 13.3334 8.06663 13.3334C6.86663 13.3334 5.86663 13.0001 4.99996 12.4001Z"
+                fill="currentColor"
+              />
+            </svg>
+            {localeLabel[other]}
+          </Link>
         </div>
+
+        <p className="footer-legal">
+          © {new Date().getFullYear()} Zdrovy. {dict.footer.rights}
+        </p>
       </div>
     </footer>
   );

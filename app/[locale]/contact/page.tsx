@@ -34,7 +34,7 @@ export default async function ContactPage({
 
   return (
     <>
-      <Toolbar locale={locale} dict={t} />
+      <Toolbar locale={locale} dict={t} here="/contact" />
       <main>
         <Hero title={t.contact.heading} align="left" />
 

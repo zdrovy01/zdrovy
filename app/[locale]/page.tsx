@@ -25,11 +25,10 @@ export default async function Home({
 
   return (
     <>
-      <Toolbar locale={locale} dict={t} />
+      <Toolbar locale={locale} dict={t} here="/" />
       <main>
         {/* 1 — headline: the benefit, not the mechanism */}
         <Hero
-          eyebrow={t.home.eyebrow}
           title={t.home.heading}
           ctaLabel={t.home.cta}
           ctaHref="mailto:zdrovy.co@gmail.com?subject=Early%20access%20to%20Zdrovy"
@@ -39,7 +38,7 @@ export default async function Home({
 
         <Section flush>
           <div className="grid">
-            <div className="col-4 col-start-5 hero-shot">
+            <div className="col-6 col-start-4 hero-shot">
               <Figure
                 src="/appshow.png"
                 alt={t.home.phoneAlt}
@@ -60,7 +59,6 @@ export default async function Home({
           <Section key={f.title}>
             <FeatureRow
               title={f.title}
-              text={f.text}
               items={f.items}
               flip={i % 2 === 1}
               media={
